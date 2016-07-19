@@ -6,6 +6,7 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+- Pass media element to peer-agent
 
 ## [3.5.4] - 2016-07-11
 ### Fixed
@@ -33,7 +34,7 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ### Removed
 - XHR loader
- 
+
 ## [3.3.0] - 2016-06-28
 ### Added
 - Expose peer-agent public stats api in HlsjsP2PWrapper.
