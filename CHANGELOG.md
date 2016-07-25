@@ -4,6 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This changelog's template come from [keepachangelog.com](http://keepachangelog.com/). When editing this document, please follow the convention specified there.
 
 ## [Dev]
+### Added
+- Pass media element to peer-agent
 
 ## [Unreleased]
 
@@ -33,17 +35,19 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ### Removed
 - XHR loader
- 
+
 ## [3.3.0] - 2016-06-28
 ### Added
 - Expose peer-agent public stats api in HlsjsP2PWrapper.
 
 ## [3.2.5] - 2016-06-28
+### Changed
 - Replace the old optional method `getNextSegmentView` by `getSegmentDuration`
 
 ## [3.2.0] - 2016-06-21
 ### Changed
 - Hls.js version upgraded to 0.5.39 (fixes issues with Apple streams on Firefox) and updated bandwidth estimation integration tests
+
 ### Fixed
 - Fixed regression in P2P-loader retrying routine (missing to clear timeout after fixing initial bug around calling abort function on handling errors)
 
@@ -55,6 +59,7 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ### Added
 - getId() method in SegmentView to identify segments
 - getTracksList() is now getTrackList()
+
 ### Changed
 - Pass HLS streamType to PeerAgent constructor.
 - Custom headers are now in JSON format
@@ -70,6 +75,7 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 - Publish only minified files contained in `dist` folder.
 
 ## [2.0.8] - 2016-05-02
+### Fixed
 - Hotfix for P2P-227 - Don't use P2P loader for encryption keys or playlists
 
 ## [2.0.7] - 2016-04-28
