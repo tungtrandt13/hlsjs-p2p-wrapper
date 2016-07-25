@@ -4,10 +4,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This changelog's template come from [keepachangelog.com](http://keepachangelog.com/). When editing this document, please follow the convention specified there.
 
 ## [Dev]
-### Added
-- Pass media element to peer-agent
 
 ## [Unreleased]
+
+## [3.6.0] - 2016-07-25
+### Added
+- Pass media element to peer-agent
 
 ## [3.5.4] - 2016-07-11
 ### Fixed
