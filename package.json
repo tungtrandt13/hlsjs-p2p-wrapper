@@ -64,7 +64,6 @@
     "mocha": "^2.4.5",
     "node-static": "^0.7.7",
     "should": "^9.0.0",
-    "uglifyify": "^3.0.1",
-    "xhr-shaper": "^0.2.1"
+    "uglifyify": "^3.0.1"
   }
 }
