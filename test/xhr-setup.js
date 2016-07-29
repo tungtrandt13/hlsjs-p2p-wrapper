@@ -2,58 +2,34 @@ import {extractInfoFromXhrSetup} from '../lib/utils';
 
 describe("xhrSetup extractor",() => {
 
-    it('should throw when we use a forbidden method', (done) => {
-        try {
-            extractInfoFromXhrSetup((xhr) => {
-                xhr.open();
-            });
-        } catch (e) {
-            // FIXME: no idea why should.throw doesn't work here, but this does ...
-            // this is not really a problem since the test is still the same
-            done();
-            return;
-        }
-        throw new Error('failed!');
+    it('should throw when we use a forbidden method', () => {
+        extractInfoFromXhrSetup.bind(null, (xhr) => {
+            xhr.open();
+        }).should.throw(Error);
     });
 
-    it('should throw when we write a forbidden property', (done) => {
-        try {
-            extractInfoFromXhrSetup((xhr) => {
-                xhr.onload = () => {};
-            });
-        } catch (e) {
-            // FIXME: no idea why should.throw doesn't work here, but this does ...
-            // this is not really a problem since the test is still the same
-            done();
-            return;
-        }
-        throw new Error('failed!');
+    it('should throw when we write a forbidden property', () => {
+        extractInfoFromXhrSetup.bind(null, (xhr) => {
+            xhr.onloadend = () => {};
+        }).should.throw(Error);
     });
 
-    it('should throw when we access a forbidden read-only property', (done) => {
-        try {
-            extractInfoFromXhrSetup((xhr) => {
-                xhr.response;
-            });
-        } catch (e) {
-    		// FIXME: no idea why should.throw doesn't work here, but this does ...
-    		// this is not really a problem since the test is still the same
-            done();
-            return;
-        }
-        throw new Error('failed!');
+    it('should throw when we access a forbidden read-only property', () => {
+        extractInfoFromXhrSetup.bind(null, (xhr) => {
+            xhr.response;
+        }).should.throw(Error);
     });
 
     it('should not throw when we call setRequestHeader', () => {
 
-        extractInfoFromXhrSetup((xhr) => {
+        extractInfoFromXhrSetup.bind(null, (xhr) => {
             xhr.setRequestHeader('SomeHeader', 'SomeValue');
         }).should.not.throw;
 
     });
 
     it('should not throw when we access withCredentials', () => {
-        extractInfoFromXhrSetup((xhr) => {
+        extractInfoFromXhrSetup.bind(null, (xhr) => {
             xhr.withCredentials.should.be.false;
             xhr.withCredentials = true;
         }).should.not.throw;
@@ -78,10 +54,10 @@ describe("xhrSetup extractor",() => {
 
     it('should extend base headers when present', () => {
         let {headers} = extractInfoFromXhrSetup((xhr, url) => {
-            
+            xhr.setRequestHeader('bla', 'bla');
         }, "foobar", {foo: "bar"});
 
-        headers.should.eql({foo: "bar"});
+        headers.should.eql({foo: "bar", bla: 'bla'});
     });
 
 });
