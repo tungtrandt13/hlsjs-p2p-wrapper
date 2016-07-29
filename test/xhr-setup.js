@@ -48,6 +48,7 @@ describe("xhrSetup extractor",() => {
 
     it('should pass through URL to `xhrSetup` when present', () => {
         extractInfoFromXhrSetup((xhr, url) => {
+            xhr.setRequestHeader('bla', 'bla');
             url.should.eql('foobar');
         }, "foobar");
     });
@@ -55,6 +56,7 @@ describe("xhrSetup extractor",() => {
     it('should extend base headers when present', () => {
         let {headers} = extractInfoFromXhrSetup((xhr, url) => {
             xhr.setRequestHeader('bla', 'bla');
+            url.should.eql('foobar');
         }, "foobar", {foo: "bar"});
 
         headers.should.eql({foo: "bar", bla: 'bla'});
