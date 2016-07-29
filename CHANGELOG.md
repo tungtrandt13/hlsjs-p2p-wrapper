@@ -7,8 +7,7 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [Unreleased]
 
-## [3.6.3] - 2016-07-29
-
+## [3.6.4] - 2016-07-29
 ### Added
 - Support for `xhrSetup` in Hls.js config via BaseXHR class from xhr-shaper project. Only supports `withCredentials` and `setRequestHeader` in this implementation.
 
