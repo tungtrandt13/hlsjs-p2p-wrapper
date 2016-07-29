@@ -70,4 +70,18 @@ describe("xhrSetup extractor",() => {
         withCredentials.should.be.true;
     });
 
+    it('should pass through URL to `xhrSetup` when present', () => {
+        extractInfoFromXhrSetup((xhr, url) => {
+            url.should.eql('foobar');
+        }, "foobar");
+    });
+
+    it('should extend base headers when present', () => {
+        let {headers} = extractInfoFromXhrSetup((xhr, url) => {
+            
+        }, "foobar", {foo: "bar"});
+
+        headers.should.eql({foo: "bar"});
+    });
+
 });
