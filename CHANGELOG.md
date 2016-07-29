@@ -7,6 +7,9 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [Unreleased]
 
+### Added
+- Support for `xhrSetup` in Hls.js config via BaseXHR class from xhr-shaper project. Only supports `withCredentials` and `setRequestHeader` in this implementation.
+
 ## [3.6.0] - 2016-07-25
 ### Added
 - Pass media element to peer-agent
