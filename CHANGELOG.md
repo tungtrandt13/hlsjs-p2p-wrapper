@@ -17,7 +17,7 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [3.5.4] - 2016-07-11
 ### Fixed
-- fixed toolkit (merge of master in fev failed because of fast forward)
+- fixed toolkit (merge of master in dev failed because of fast forward)
 
 ## [3.5.3] - 2016-07-11
 ### Changed
