@@ -1,6 +1,7 @@
 machine:
     node:
         version: 6.2.0
+
     ruby:
         version: 2.2.0
 
@@ -20,10 +21,11 @@ dependencies:
                                             --dependency_path dependencies.streamroot-p2p
                                             --version beta
 
-
         - npm prune
+
     override:
         - npm update
+
     post:
         - npm ls > $CIRCLE_ARTIFACTS/package.lock
 
