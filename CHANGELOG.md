@@ -5,6 +5,9 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [Dev]
 
+### Added
+- p2pDownloadOn and p2pUploadOn properties on public API
+
 ## [Unreleased]
 
 ## [3.6.8] - 2016-08-19
