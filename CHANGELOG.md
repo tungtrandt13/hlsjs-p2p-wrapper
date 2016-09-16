@@ -7,6 +7,7 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ### Added
 - p2pDownloadOn and p2pUploadOn properties on public API
+- `type` property on `TrackView` (required for peer-agent asynchronous loading)
 
 ## [Unreleased]
 
