@@ -5,6 +5,11 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [Dev]
 
+### Added
+- p2pDownloadOn and p2pUploadOn properties on public API
+- `version` getter on HlsjsP2PWrapper constructor
+- `type` property on `TrackView` (required for peer-agent asynchronous loading)
+
 ## [Unreleased]
 
 ## [3.6.9] - 2016-09-05
@@ -26,7 +31,7 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [3.5.4] - 2016-07-11
 ### Fixed
-- fixed toolkit (merge of master in fev failed because of fast forward)
+- fixed toolkit (merge of master in dev failed because of fast forward)
 
 ## [3.5.3] - 2016-07-11
 ### Changed

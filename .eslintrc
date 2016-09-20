@@ -5,7 +5,9 @@
         "mocha": true,
         "node": true
     },
-    "globals": {},
+    "globals": {
+        _VERSION_: true,
+    },
     "parser": "babel-eslint",
     "parserOptions": {
         "sourceType": "module"
