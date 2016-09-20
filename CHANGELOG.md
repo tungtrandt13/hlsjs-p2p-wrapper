@@ -5,12 +5,14 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [Dev]
 
+## [Unreleased]
+
+## [3.7.0] - 2016-09-20
+
 ### Added
 - p2pDownloadOn and p2pUploadOn properties on public API
 - `version` getter on HlsjsP2PWrapper constructor
 - `type` property on `TrackView` (required for peer-agent asynchronous loading)
-
-## [Unreleased]
 
 ## [3.6.9] - 2016-09-05
 
