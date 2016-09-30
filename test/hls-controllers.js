@@ -27,11 +27,11 @@ describe("Hls controllers", () => {
         };
 
         abrController.onFragLoading({frag});
+        abrController.onFragLoadProgress({frag, stats});
         abrController.onFragLoaded({frag, stats});
 
-        abrController.bwEstimator.getEstimate().should.be.approximately(1024000, 4000);
+        abrController.lastbw.should.be.approximately(1024000, 4000);
         abrController.lastLoadedFragLevel.should.be.equal(frag.level);
-
     });
 
     it("should estimate the right bandwidth according to stats of buffered fragment", () => {
