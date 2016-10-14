@@ -16,11 +16,6 @@ dependencies:
         - git config --global user.name $STREAMROOT_USERNAME
         - git clone git@github.com:streamroot/toolkit.git
 
-        # Set peer-agent version
-        - toolkit/set_dependency_version.rb --exclude_branches master
-                                            --dependency_path dependencies.streamroot-p2p
-                                            --version beta
-
         - npm prune
 
     override:
