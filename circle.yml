@@ -24,7 +24,7 @@ dependencies:
         - npm prune
 
     override:
-        - npm update
+        - npm install
 
     post:
         - npm ls > $CIRCLE_ARTIFACTS/package.lock
@@ -235,4 +235,3 @@ deployment:
 
             # Run bridge
             - bridge/run.rb --current_module $CIRCLE_PROJECT_REPONAME --trigger_branch master --token $BRIDGE_TOKEN
-
