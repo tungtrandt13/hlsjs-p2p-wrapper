@@ -1,15 +1,15 @@
 # hlsjs-p2p-wrapper
 
-This module wraps an instance of [`Hls.js`](https://github.com/dailymotion/hls.js) to bootstrap it with the Streamroot P2P module.
+This module wraps an instance of [`Hls.js`](https://github.com/dailymotion/hls.js) to bootstrap it with [the Streamroot P2P module](http://streamroot.io).
 
-It provides a **bundle** that extends the [`Hls.js`](https://github.com/dailymotion/hls.js) constructor to create a fully configured player which will use the Streamroot P2P module, giving you the exact same API.  
-You can integrate this bundle with minimal changes in your application (you only need to add an additional argument to the [`Hls.js`](https://github.com/dailymotion/hls.js) constructor).
+It provides a **bundle** that extends the [`Hls.js`](https://github.com/dailymotion/hls.js) constructor to create a fully configured player which will use the Streamroot P2P module, giving you the exact same API.
+You can integrate this bundle with minimal changes in your application (you only need to add an additional argument to the [`Hls.js`](https://github.com/dailymotion/hls.js) constructor). **The bundled version of hls.js is v0.6.1**.
 
-It also provides a **wrapper** that allows you to create/configure a player with a specific version of [`Hls.js`](https://github.com/dailymotion/hls.js).
+It also provides a **wrapper** that allows you to create/configure a player with a specific version of [`Hls.js`](https://github.com/dailymotion/hls.js). **Minimum supported version of hls.js is vPUT_VERISON_HERE**.
 
-# Usage
+### Build
 
-### Pre-requisites 
+#### Pre-requisites
 
 First of all, make sure you are using a Node.js version >= 6.0.0
 
@@ -17,46 +17,24 @@ Since the installation uses a Ruby script, you need Ruby to be installed on your
 
 Finally, one of the install steps assumes the presence of `wget` on your system. Again this is most likely installed on all Unix based systems. If you have a Mac, you could use [Homebrew](https://brew.sh/) and then run `brew install wget`.
 
-### Install
-
-You can install the artifacts distributed as NPM modules:
-
-For the wrapper with hls.js included:
-
-```
-npm install streamroot-hlsjs-p2p-bundle
-```
-
-For the wrapper without hls.js:
-
-```
-npm install streamroot-hlsjs-p2p-wrapper
-```
-
-In your application import/require the package you want to use as in the example like
-
-```
-import StreamrootHlsjsP2PBundle from 'streamroot-hlsjs-p2p-bundle';
-```
-
-or
-
-```
-import StreamrootHlsjsP2PWrapper from 'streamroot-hlsjs-p2p-wrapper';
-```
-
-### Setup
-
-After cloning the repo, make sure that you have `grunt-cli` installed in your global node binaries and install local dependencies in the project root:
-
+Grunt is used for running build tasks, so make sure that you have `grunt-cli` installed in your global node binaries otherwise install it like this:
 ```
 sudo npm install -g grunt-cli
+```
+
+#### Install library dependencies
+
+```
 npm install
 ```
 
-### Build
+#### Clone this repo
 
-#### Bundle
+```
+git clone https://github.com/streamroot/hlsjs-p2p-wrapper.git
+```
+
+#### Build bundle
 
 Run this task to build it:
 ```
@@ -65,7 +43,13 @@ grunt browserify:bundle
 
 Now you can include `dist/bundle/hlsjs-p2p-bundle.js` in your application.
 
-#### Wrapper
+To build and compile-watch development/debug version use:
+
+```
+grunt browserify:bundle_dev
+```
+
+#### Build wrapper
 
 Run this task to build it:
 ```
@@ -74,17 +58,7 @@ grunt browserify:wrapper
 
 Now you can include `dist/wrapper/hlsjs-p2p-wrapper.js` in your application.
 
-### Development
-
-Make sure to have run `npm install` at least once.
-
-To build and compile-watch the example files run:
-
-```
-grunt browserify:bundle_dev
-```
-
-or
+To build and compile-watch development/debug version use:
 
 ```
 grunt browserify:wrapper_dev
@@ -106,7 +80,7 @@ npm run karma
 
 IMPORTANT: Set `export NODE_ENV=development` in your shell to make sure Karma will use all your local browser capabilities when in dev mode.
 
-For integration tests in dev mode (Mocha suite running in your favorite browser, better for debugging): 
+For integration tests in dev mode (Mocha suite running in your favorite browser, better for debugging):
 
 1. Start dev server:
 
@@ -124,17 +98,60 @@ grunt browserify:test_dev
 
 ### Example
 
-#### Bundle instantiation
+#### Bundle
+
+Include the bundle build in your app.
+
+```html
+<head>
+    <!-- path to hlsjs-p2p-bundle build -->
+    <script src="hlsjs-p2p-bundle.js"></script>
+</head>
+```
+
+Create `hls.js` instance passing `hlsjsConfig` and `p2pConfig` as constructor params.
 
 ```javascript
-// Hls constructor is overriden by including bundle
+var hlsjsConfig = {
+    debug: true
+};
+
+var p2pConfig = {
+    streamrootKey: YOUR_STREAMROOT_KEY_HERE,
+    debug: true
+};
+
+// Hls constructor is overriden by included bundle
 var hls = new Hls(hlsjsConfig, p2pConfig);
 // Use `hls` just like your usual hls.js ...
 ```
 
-#### Wrapper instantiation
+#### Wrapper
+
+Include the wrapper build and hls.js build in your app.
+
+```html
+<head>
+    <!-- path to hlsjs-p2p-wrapper build -->
+    <script src="hlsjs-p2p-wrapper.js"></script>
+
+    <!-- hls.js build of your choice -->
+    <script src="hls.js"></script>
+</head>
+```
+
+Create `hls.js` wrapper instance passing reference to `Hls` as constructor param. Create `hls.js` instance using wrapper's `createPlayer` methods passing `hlsjsConfig` and `p2pConfig` as params.
 
 ```javascript
+var hlsjsConfig = {
+    debug: true
+};
+
+var p2pConfig = {
+    streamrootKey: YOUR_STREAMROOT_KEY_HERE,
+    debug: true
+};
+
 var wrapper = new StreamrootHlsjsP2PWrapper(Hls);
 var hls = wrapper.createPlayer(hlsjsConfig, p2pConfig);
 // Use `hls` just like your usual hls.js…
@@ -142,7 +159,9 @@ var hls = wrapper.createPlayer(hlsjsConfig, p2pConfig);
 
 To see full sample code and extended possibilities of how to use this module, take a look at the code in the `example` directory.
 
-Check the p2pConfig documentation [here](https://streamroot.readme.io/docs/p2p-config) and our recommendations about hls.js configuration [here](https://streamroot.readme.io/docs/hls-config).
+### Configuration
+
+Specify your `streamrootKey` in the `p2pConfig` object. If you don't have it, go to [Streamroot's dashboard](http://dashboard.streamroot.io/) and sign up. It's free. You can check other `p2pConfig` options in the [documentation](https://streamroot.readme.io/docs/p2p-config) and our recommendations about hls.js configuration [here](https://streamroot.readme.io/docs/hls-config).
 
 ### Statistics
 
@@ -173,6 +192,8 @@ Go to <http://localhost:8080/example> for the Streamroot demo.
 
 Go to <http://localhost:8080/demo> for the Hls.js demo.
 
+To see some p2p traffic open several browser tabs/windows playing the same manifest (so there will be peers to exchange p2p traffic).
+
 ### API docs
 
 The public API documentation is generated from the code.
@@ -183,7 +204,8 @@ After clonig the repo run:
 grunt docs
 ```
 
-This will start a server. Go to <http://localhost:8080/docs>
+### Player integration
 
+The module is integrated in the following players:
 
-**NOTE:** it's better to use `babel-runtime` when building this module. It makes use of Object.assign, and IE11 reports error due to the use of Symbol, although we don't make use of them
+* [Video.js 5](https://github.com/videojs/video.js/) through [videojs5-hlsjs-p2p-source-handler](https://github.com/streamroot/videojs5-hlsjs-p2p-source-handler)
