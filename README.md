@@ -5,7 +5,7 @@ This module wraps an instance of [`Hls.js`](https://github.com/dailymotion/hls.j
 It provides a **bundle** that extends the [`Hls.js`](https://github.com/dailymotion/hls.js) constructor to create a fully configured player which will use the Streamroot P2P module, giving you the exact same API.
 You can integrate this bundle with minimal changes in your application (you only need to add an additional argument to the [`Hls.js`](https://github.com/dailymotion/hls.js) constructor). **The bundled version of hls.js is v0.6.1**.
 
-It also provides a **wrapper** that allows you to create/configure a player with a specific version of [`Hls.js`](https://github.com/dailymotion/hls.js). **Minimum supported version of hls.js is vPUT_VERISON_HERE**.
+It also provides a **wrapper** that allows you to create/configure a player with a specific version of [`Hls.js`](https://github.com/dailymotion/hls.js).
 
 ### Build
 
