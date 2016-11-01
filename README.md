@@ -7,6 +7,34 @@ You can integrate this bundle with minimal changes in your application (you only
 
 It also provides a **wrapper** that allows you to create/configure a player with a specific version of [`Hls.js`](https://github.com/dailymotion/hls.js).
 
+### Install via npm
+
+You can install the artifacts distributed as NPM modules:
+
+For the wrapper with hls.js included:
+
+```
+npm install streamroot-hlsjs-p2p-bundle
+```
+
+For the wrapper without hls.js:
+
+```
+npm install streamroot-hlsjs-p2p-wrapper
+```
+
+In your application import/require the package you want to use as in the example like
+
+```javascript
+import StreamrootHlsjsP2PBundle from 'streamroot-hlsjs-p2p-bundle';
+```
+
+or
+
+```javascript
+import StreamrootHlsjsP2PWrapper from 'streamroot-hlsjs-p2p-wrapper';
+```
+
 ### Build
 
 #### Pre-requisites
