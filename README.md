@@ -50,16 +50,16 @@ Grunt is used for running build tasks, so make sure that you have `grunt-cli` in
 sudo npm install -g grunt-cli
 ```
 
-#### Install library dependencies
-
-```
-npm install
-```
-
 #### Clone this repo
 
 ```
 git clone https://github.com/streamroot/hlsjs-p2p-wrapper.git
+```
+
+#### Install library dependencies
+
+```
+npm install
 ```
 
 #### Build bundle
