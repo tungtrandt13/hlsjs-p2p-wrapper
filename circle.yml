@@ -32,7 +32,6 @@ dependencies:
 test:
     override:
         - npm test
-        - npm run karma
         - npm run lint
 
 deployment:
@@ -235,4 +234,3 @@ deployment:
 
             # Run bridge
             - bridge/run.rb --current_module $CIRCLE_PROJECT_REPONAME --trigger_branch master --token $BRIDGE_TOKEN
-
