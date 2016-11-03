@@ -2,6 +2,7 @@
 const _VERSION_ = require('./package').version;
 
 function makeBrowserifyTask (src, dest, standalone, dev) {
+    'use strict';
     let task = {
         src: src,
         dest: dest,

@@ -107,7 +107,7 @@ describe("StreamrootHlsjsBundle", function() { // NOTE: We need to use the oldsc
         hls.on(Hls.Events.MANIFEST_PARSED,function() {
             video.volume = 0;
             video.play();
-            cb();
+            cb && cb();
         });
     }
 
