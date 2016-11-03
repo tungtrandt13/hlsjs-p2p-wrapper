@@ -4,10 +4,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This changelog's template come from [keepachangelog.com](http://keepachangelog.com/). When editing this document, please follow the convention specified there.
 
 ## [Dev]
-### Updated
-- hls.js to 0.6.1.
 
 ## [Unreleased]
+
+## [3.7.12] - 2016-11-03
+### Updated
+- hls.js to 0.6.1.
 
 ## [3.7.0] - 2016-09-20
 
