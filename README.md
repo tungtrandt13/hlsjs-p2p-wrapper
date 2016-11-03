@@ -1,23 +1,23 @@
 # hlsjs-p2p-wrapper
 
-This module wraps an instance of [`Hls.js`](https://github.com/dailymotion/hls.js) to bootstrap it with [the Streamroot P2P module](http://streamroot.io).
+This module wraps an instance of [`hls.js`](https://github.com/dailymotion/hls.js) to bootstrap it with [the Streamroot P2P module](http://streamroot.io).
 
-It provides a **bundle** that extends the [`Hls.js`](https://github.com/dailymotion/hls.js) constructor to create a fully configured player which will use the Streamroot P2P module, giving you the exact same API.
-You can integrate this bundle with minimal changes in your application (you only need to add an additional argument to the [`Hls.js`](https://github.com/dailymotion/hls.js) constructor). **The bundled version of hls.js is v0.6.1**.
+It provides a **bundle** that extends the [`hls.js`](https://github.com/dailymotion/hls.js) constructor to create a fully configured player which will use the Streamroot P2P module, giving you the exact same API.
+You can integrate this bundle with minimal changes in your application (you only need to add an additional argument to the [`hls.js`](https://github.com/dailymotion/hls.js) constructor). **The bundled version of [`hls.js`](https://github.com/dailymotion/hls.js) is [`v0.6.1`](https://github.com/dailymotion/hls.js/releases/tag/v0.6.1)**.
 
-It also provides a **wrapper** that allows you to create/configure a player with a specific version of [`Hls.js`](https://github.com/dailymotion/hls.js).
+It also provides a **wrapper** that allows you to create/configure a player with a specific version of [`hls.js`](https://github.com/dailymotion/hls.js).  
 
 ### Install via npm
 
 You can install the artifacts distributed as NPM modules:
 
-For the wrapper with hls.js included:
+For the wrapper with [`hls.js`](https://github.com/dailymotion/hls.js) included:
 
 ```
 npm install streamroot-hlsjs-p2p-bundle
 ```
 
-For the wrapper without hls.js:
+For the wrapper without [`hls.js`](https://github.com/dailymotion/hls.js):
 
 ```
 npm install streamroot-hlsjs-p2p-wrapper
@@ -156,7 +156,7 @@ var hls = new Hls(hlsjsConfig, p2pConfig);
 
 #### Wrapper
 
-Include the wrapper build and hls.js build in your app.
+Include the wrapper build and [`hls.js`](https://github.com/dailymotion/hls.js) build in your app.
 
 ```html
 <head>
@@ -170,7 +170,7 @@ Include the wrapper build and hls.js build in your app.
 
 ##### Without async loading
 
-Create `hls.js` wrapper instance passing reference to `Hls` as constructor param. Create `hls.js` instance using wrapper's `createPlayer` methods passing `hlsjsConfig` and `p2pConfig` as params.
+Create [`hls.js`](https://github.com/dailymotion/hls.js) wrapper instance passing reference to `Hls` as constructor param. Create [`hls.js`](https://github.com/dailymotion/hls.js) instance using wrapper's `createPlayer` methods passing `hlsjsConfig` and `p2pConfig` as params.
 
 ```javascript
 var hlsjsConfig = {};
@@ -218,7 +218,7 @@ To see full sample code and extended possibilities of how to use this module, ta
 
 ### Configuration
 
-Specify your `streamrootKey` in the `p2pConfig` object. If you don't have it, go to [Streamroot's dashboard](http://dashboard.streamroot.io/) and sign up. It's free. You can check other `p2pConfig` options in the [documentation](https://streamroot.readme.io/docs/p2p-config) and our recommendations about hls.js configuration [here](https://streamroot.readme.io/docs/hls-config).
+Specify your `streamrootKey` in the `p2pConfig` object. If you don't have it, go to [Streamroot's dashboard](http://dashboard.streamroot.io/) and sign up. It's free. You can check other `p2pConfig` options in the [documentation](https://streamroot.readme.io/docs/p2p-config) and our recommendations about [`hls.js`](https://github.com/dailymotion/hls.js) configuration [here](https://streamroot.readme.io/docs/hls-config).
 
 ### Statistics
 
@@ -237,7 +237,7 @@ A `stats` object is available on a `HlsjsP2PWrapper` instance and contains the f
 
 ### Run demos
 
-To build and run the shipped Hls.js and Streamroot demos run:
+To build and run the shipped [`hls.js`](https://github.com/dailymotion/hls.js) and Streamroot demos run:
 
 ```
 grunt demo
@@ -247,7 +247,7 @@ This will start a server.
 
 Go to <http://localhost:8080/example> for the Streamroot demo.
 
-Go to <http://localhost:8080/demo> for the Hls.js demo.
+Go to <http://localhost:8080/demo> for the [`hls.js`](https://github.com/dailymotion/hls.js) demo.
 
 To see some p2p traffic open several browser tabs/windows playing the same manifest (so there will be peers to exchange p2p traffic).
 
