@@ -168,22 +168,51 @@ Include the wrapper build and hls.js build in your app.
 </head>
 ```
 
+##### Without async loading
+
 Create `hls.js` wrapper instance passing reference to `Hls` as constructor param. Create `hls.js` instance using wrapper's `createPlayer` methods passing `hlsjsConfig` and `p2pConfig` as params.
 
 ```javascript
-var hlsjsConfig = {
-    debug: true
-};
+var hlsjsConfig = {};
 
 var p2pConfig = {
-    streamrootKey: YOUR_STREAMROOT_KEY_HERE,
-    debug: true
+    streamrootKey: YOUR_STREAMROOT_KEY_HERE
 };
 
-var wrapper = new StreamrootHlsjsP2PWrapper(Hls);
+var wrapper = new HlsjsP2PWrapper(Hls);
 var hls = wrapper.createPlayer(hlsjsConfig, p2pConfig);
 // Use `hls` just like your usual hls.js…
 ```
+
+##### With async loading
+```javascript
+var hlsjsConfig = {
+    maxBufferSize: 0,		// Highly recommended setting
+    maxBufferLength: 30		// Highly recommended setting
+};
+
+var hls = new Hls(hlsjsConfig);
+
+var wrapper = new HlsjsP2PWrapper(Hls);
+
+// This part can be executed later
+hls.config.fLoader = wrapper.P2PLoader;
+hls.config.maxBufferSize = 0;
+hls.config.maxBufferLength = 30;
+
+var p2pConfig = {
+    streamrootKey: YOUR_STREAMROOT_KEY_HERE
+};
+
+if (hls.url) {
+    wrapper.createSRModule(p2pConfig, hls, Hls.Events);
+} else {
+    hls.on(Hls.Events.MANIFEST_LOADING, function() {
+        wrapper.createSRModule(p2pConfig, hls, Hls.Events);
+    });
+}
+```
+
 
 To see full sample code and extended possibilities of how to use this module, take a look at the code in the `example` directory.
 
