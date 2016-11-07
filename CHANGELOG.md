@@ -9,6 +9,10 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [Unreleased]
 
+## [3.7.13] - 2016-11-07
+### Updated
+- Bundles hls.js 0.5.46
+
 ## [3.7.12] - 2016-11-03
 ### Updated
 - hls.js to 0.6.1.
