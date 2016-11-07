@@ -20,15 +20,20 @@ class HlsMock {
 
         for (var i = 0; i < levelNumber; i++) {
             let level;
+            let url = [
+                `http://foo.bar/${i}/0/playlist.m3u8`,
+                `http://foo.bar/${i}/1/playlist.m3u8`,
+            ];
 
             if (emptyLevel) {
-                level = {};
+                level = { url };
             } else {
                 level = {
                     details: {
                         totalduration: 120
                     },
-                    audioCodec: "fooCodec"
+                    audioCodec: "fooCodec",
+                    url
                 };
             }
 
@@ -54,4 +59,3 @@ class HlsMock {
 }
 
 export default HlsMock;
-

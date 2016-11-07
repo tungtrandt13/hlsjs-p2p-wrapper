@@ -11,11 +11,13 @@ describe("P2PLoaderGenerator", function() { // using plain ES5 function here
                                             // otherwise `this.timeout` is broken
 
     function createHls() {
-        const P2PLoader = p2pLoaderGenerator(new HlsjsWrapperMock());
+        let wrapper = new HlsjsWrapperMock();
+        let P2PLoader = p2pLoaderGenerator(wrapper);
         let hls = new Hls({
             fLoader: P2PLoader,
             debug: true
         });
+        wrapper.hls = hls;
 
         hls.on(Hls.Events.ERROR, (event, data) => {
             console.log(data);
@@ -103,6 +105,8 @@ describe("P2PLoaderGenerator", function() { // using plain ES5 function here
 
     it("should fail to load a fragment and trigger error events", (done) => {
 
+        const hlsjsMock = new HlsjsMock(1, false);
+
         let hls = createHls();
 
         let isDone = false;
@@ -114,8 +118,11 @@ describe("P2PLoaderGenerator", function() { // using plain ES5 function here
         });
 
         let frag = {
-            url: TEST_URL1 + "foo"
+            url: TEST_URL1 + "foo",
+            level: 0
         };
+
+        hls.levelController._levels = hlsjsMock.levels;
 
         hls.trigger(Hls.Events.FRAG_LOADING, {frag});
 
