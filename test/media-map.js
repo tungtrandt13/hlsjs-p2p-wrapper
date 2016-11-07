@@ -122,4 +122,17 @@ describe("MediaMap", () => {
             mediaMap.getSegmentList.bind(mediaMap, trackView, 2100, 3000).should.throw("getSegmentList: level doesn't exist");
         });
     });
+
+    describe('getTrackList', () => {
+        it('Should return empty array if hls.levels is undefined', () => {
+            let hlsMock = new HlsMock(0, false, 0);
+            let mediaMap = new MediaMap(hlsMock);
+            mediaMap.getTrackList().should.eql([]);
+        });
+        it('Should return list of tracks otherwise', () => {
+            let hlsMock = new HlsMock(3, false, 1);
+            let mediaMap = new MediaMap(hlsMock);
+            mediaMap.getTrackList().length.should.equal(6); // 3 levels x 2 urlIds
+        });
+    });
 });
