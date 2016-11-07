@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+
+## [3.7.13] - 2016-11-07
 ### Updated
 - Bundles hls.js 0.5.46
 
