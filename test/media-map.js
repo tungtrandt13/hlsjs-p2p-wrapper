@@ -9,7 +9,8 @@ describe("MediaMap", () => {
             let hlsMock = new HlsMock(3, false, 1);
             let mediaMap = new MediaMap(hlsMock);
             let trackView = new TrackView({
-                level: 1
+                level: 1,
+                urlId: 1
             });
             let segmentView = new SegmentView({ sn: 56, trackView, time: 560 });
             mediaMap.getSegmentTime(segmentView).should.be.equal(560);
@@ -18,7 +19,7 @@ describe("MediaMap", () => {
         it("Should not throw error if segment index can't be found, if property time exists", function () {
             let hlsMock = new HlsMock(3, false, 1);
             let mediaMap = new MediaMap(hlsMock);
-            let trackView = new TrackView({ level: 1 });
+            let trackView = new TrackView({ level: 1, urlId: 1 });
             let segmentView = new SegmentView({ sn: 24, trackView, time: 240 });
             mediaMap.getSegmentTime(segmentView).should.be.equal(240);
         });
@@ -26,7 +27,7 @@ describe("MediaMap", () => {
         it("Should not throw if called on a level that is not parsed, if property time exists", function () {
             let hlsMock = new HlsMock(3, false, 0);
             let mediaMap = new MediaMap(hlsMock);
-            let trackView = new TrackView({ level: 1 });
+            let trackView = new TrackView({ level: 1, urlId: 1 });
             let segmentView = new SegmentView({ sn: 56, trackView, time: 560 });
             mediaMap.getSegmentTime(segmentView).should.be.equal(560);
         });
@@ -34,7 +35,7 @@ describe("MediaMap", () => {
         it("Should throw if property time doesn't exists", function () {
             let hlsMock = new HlsMock(3, false, 0);
             let mediaMap = new MediaMap(hlsMock);
-            let trackView = new TrackView({ level: 1 });
+            let trackView = new TrackView({ level: 1, urlId: 1 });
             let segmentView = new SegmentView({ sn: 56, trackView });
 
             mediaMap.getSegmentTime.bind(mediaMap, segmentView).should.throw("getSegmentTime: segmentView.time is undefined");
@@ -45,7 +46,7 @@ describe("MediaMap", () => {
         it("Should return list of segments in timerange (timerange included in segment index)", function () {
             let hlsMock = new HlsMock(3, false, 1);
             let mediaMap = new MediaMap(hlsMock);
-            let trackView = new TrackView({ level: 1 });
+            let trackView = new TrackView({ level: 1, urlId: 1 });
 
             let expectedSegmentList = [
                 new SegmentView({ sn: 37, trackView, time: 370 }),
@@ -59,7 +60,7 @@ describe("MediaMap", () => {
         it("Should return list of segments in timerange (left intersection)", function () {
             let hlsMock = new HlsMock(3, false, 1);
             let mediaMap = new MediaMap(hlsMock);
-            let trackView = new TrackView({ level: 1 });
+            let trackView = new TrackView({ level: 1, urlId: 1 });
             let expectedSegmentList = [
                 new SegmentView({ sn: 25, trackView, time: 250 }),
                 new SegmentView({ sn: 26, trackView, time: 260 }),
@@ -73,7 +74,7 @@ describe("MediaMap", () => {
         it("Should return list of segments in timerange (right intersection)", function () {
             let hlsMock = new HlsMock(3, false, 1);
             let mediaMap = new MediaMap(hlsMock);
-            let trackView = new TrackView({ level: 1 });
+            let trackView = new TrackView({ level: 1, urlId: 1 });
             let expectedSegmentList = [
                 new SegmentView({ sn: 198, trackView, time: 1980 }),
                 new SegmentView({ sn: 199, trackView, time: 1990 }),
@@ -85,7 +86,7 @@ describe("MediaMap", () => {
         it("Should return list of segments in timerange (timerange includes segment index)", function () {
             let hlsMock = new HlsMock(3, false, 1);
             let mediaMap = new MediaMap(hlsMock);
-            let trackView = new TrackView({ level: 1 });
+            let trackView = new TrackView({ level: 1, urlId: 1 });
             let expectedSegmentList = [];
 
             for (var f = 25; f < 200; f++) {
@@ -98,7 +99,7 @@ describe("MediaMap", () => {
         it("Should return an empty array if no segment is found in that timerange", function () {
             let hlsMock = new HlsMock(3, false, 1);
             let mediaMap = new MediaMap(hlsMock);
-            let trackView = new TrackView({ level: 1 });
+            let trackView = new TrackView({ level: 1, urlId: 1 });
             let expectedSegmentList = [];
 
             mediaMap.getSegmentList(trackView, 2100, 3000).should.be.eql(expectedSegmentList);
@@ -107,7 +108,7 @@ describe("MediaMap", () => {
         it("Should return an empty array if called on a level that is not parsed", function () {
             let hlsMock = new HlsMock(3, false, 0);
             let mediaMap = new MediaMap(hlsMock);
-            let trackView = new TrackView({ level: 1 });
+            let trackView = new TrackView({ level: 1, urlId: 1 });
             let expectedSegmentList = [];
 
             mediaMap.getSegmentList(trackView, 2100, 3000).should.be.eql(expectedSegmentList);
@@ -116,7 +117,7 @@ describe("MediaMap", () => {
         it("Should throw if level does not exist", function () {
             let hlsMock = new HlsMock(3, false, 0);
             let mediaMap = new MediaMap(hlsMock);
-            let trackView = new TrackView({ level: 4 });
+            let trackView = new TrackView({ level: 4, urlId: 1 });
 
             mediaMap.getSegmentList.bind(mediaMap, trackView, 2100, 3000).should.throw("getSegmentList: level doesn't exist");
         });
