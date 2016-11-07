@@ -4,10 +4,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This changelog's template come from [keepachangelog.com](http://keepachangelog.com/). When editing this document, please follow the convention specified there.
 
 ## [Dev]
-### Fixed
-- Fix issue with redundant levels: handle levels' backup urls as separate tracks
 
 ## [Unreleased]
+
+## [3.8.0] - 2016-11-07
+### Fixed
+- Fix issue with redundant levels: handle levels' backup urls as separate tracks
 
 ## [3.7.13] - 2016-11-07
 ### Updated
