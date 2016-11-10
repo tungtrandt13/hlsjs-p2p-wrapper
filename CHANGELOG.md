@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+
+## [3.8.1] - 2016-11-10
 - Expect HttpError instance passed in loadError callback
 
 ## [3.8.0] - 2016-11-07
