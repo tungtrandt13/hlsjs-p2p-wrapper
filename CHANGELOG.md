@@ -4,10 +4,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This changelog's template come from [keepachangelog.com](http://keepachangelog.com/). When editing this document, please follow the convention specified there.
 
 ## [Dev]
-### Removed
-- Remove liveMinBufferMargin. It is now handled by the peer-agent
 
 ## [Unreleased]
+
+## [3.9.0] - 2016-11-16
+### Removed
+- Remove liveMinBufferMargin. It is now handled by the peer-agent
 
 ## [3.8.1] - 2016-11-10
 - Expect HttpError instance passed in loadError callback
