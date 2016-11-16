@@ -7,6 +7,21 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [Unreleased]
 
+## [3.8.1] - 2016-11-10
+- Expect HttpError instance passed in loadError callback
+
+## [3.8.0] - 2016-11-07
+### Fixed
+- Fix issue with redundant levels: handle levels' backup urls as separate tracks
+
+## [3.7.13] - 2016-11-07
+### Updated
+- Bundles hls.js 0.5.46
+
+## [3.7.12] - 2016-11-03
+### Updated
+- hls.js to 0.6.1.
+
 ## [3.7.0] - 2016-09-20
 
 ### Added

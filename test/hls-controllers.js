@@ -31,7 +31,6 @@ describe("Hls controllers", () => {
 
         abrController.bwEstimator.getEstimate().should.be.approximately(1024000, 4000);
         abrController.lastLoadedFragLevel.should.be.equal(frag.level);
-
     });
 
     it("should estimate the right bandwidth according to stats of buffered fragment", () => {
@@ -53,10 +52,15 @@ describe("Hls controllers", () => {
             length: 128000
         };
 
+        // monkey-patch up a working StreamController
         streamController.state = 'FRAG_LOADING';
         streamController.fragCurrent = frag;
         streamController.levels = hlsMock.levels;
         streamController.level = 0;
+        streamController.demuxer = {
+            push() {}
+        };
+
         streamController.onFragLoaded({frag, stats});
 
         streamController.stats.should.be.equal(stats);
