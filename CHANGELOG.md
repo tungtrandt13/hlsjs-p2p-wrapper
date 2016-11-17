@@ -6,6 +6,7 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+- Add back liveSyncDuration default override when we control hls.js instantiation
 
 ## [3.9.0] - 2016-11-16
 ### Removed
