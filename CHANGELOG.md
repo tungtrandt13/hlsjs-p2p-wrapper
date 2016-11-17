@@ -7,6 +7,9 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [Unreleased]
 
+## [3.9.1] - 2016-11-17
+- Add back liveSyncDuration default override when we control hls.js instantiation
+
 ## [3.9.0] - 2016-11-16
 ### Removed
 - Remove liveMinBufferMargin. It is now handled by the peer-agent
