@@ -1,6 +1,6 @@
 {
   "name": "streamroot-hlsjs-p2p-wrapper",
-  "version": "3.10.0-beta.0",
+  "version": "4.0.0-beta.0",
   "main": "./lib/hlsjs-p2p-wrapper-private.js",
   "homepage": "www.streamroot.io",
   "author": {
