@@ -9,7 +9,10 @@ window.streamrootConfig = {
         contentId: null
     },
     hlsjsConfig: {
-    	debug: true
+        debug: true,
+        maxBufferSize: 0,
+        maxBufferLength: 30,
+        liveSyncDuration: 30
     },
     contentUrl: 'http://www.streambox.fr/playlists/test_001/stream.m3u8'
 }
