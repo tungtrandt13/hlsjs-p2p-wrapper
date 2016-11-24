@@ -31,22 +31,14 @@
 
                 // Check feature support
                 if (Hls.isSupported()) {
-
-                    var hls;
+                    var hls = new Hls(config.hlsjsConfig);
                     var video = document.getElementById('video');
 
-                    // Create wrapper where we DI the Hls.js constructor (in this example we use the one provided by the bundle)
-                    var wrapper = new HlsjsP2PWrapper(Hls);
-
                     if (p2pEnabled) {
-                        // To create a new configured default player using the wrapper toolkit
-                        hls = wrapper.createPlayer(config.hlsjsConfig, config.p2pConfig);
-                           
-                    } else {
-                        // fall back on default Hls.js constructor
-                        hls = new Hls(config.hlsjsConfig);
+                        // Create wrapper where we DI the Hls.js instance
+                        var wrapper = new HlsjsP2PWrapper(config.p2pConfig, hls, Hls.Events, config.p2pConfig.contentId);
                     }
- 
+
                     hls.loadSource(config.contentUrl);
                     hls.attachMedia(video);
                     hls.on(Hls.Events.MANIFEST_PARSED,function() {
