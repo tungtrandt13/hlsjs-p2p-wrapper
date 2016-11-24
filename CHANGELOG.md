@@ -4,6 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This changelog's template come from [keepachangelog.com](http://keepachangelog.com/). When editing this document, please follow the convention specified there.
 
 ## [Dev]
+### Added
+- Wrapper instance version getter.
+
 ### Changed
 - Wrapper instantiation: Hlsjs class injection replaced by hls.js instance injection.
 - Synchronous/asynchronous peer agent initialization in wrapper: sync triggered if hls.js instance has media url, async(on `MANIFEST_LOADING` event) if hls.js instance has not media url yet.
