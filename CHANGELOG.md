@@ -4,6 +4,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This changelog's template come from [keepachangelog.com](http://keepachangelog.com/). When editing this document, please follow the convention specified there.
 
 ## [Dev]
+### Changed
+- Wrapper instantiation: Hlsjs class injection replaced by hls.js instance injection.
+
+### Removed
+- Due to simplifed wrapper creation, its methods `createMediaEngine`, `createPlayer`, `createSRModule`, `createPeerAgent` were removed.
 
 ## [Unreleased]
 
