@@ -171,8 +171,6 @@ Include the wrapper build and [`hls.js`](https://github.com/dailymotion/hls.js) 
 </head>
 ```
 
-##### Without async loading
-
 Create [`hls.js`](https://github.com/dailymotion/hls.js) instance passsing `hlsjsConfig` as param.
 Create [`hls.js`](https://github.com/dailymotion/hls.js) wrapper instance passing `p2pConfig` and `hls.js` instance as params. Trigger `hls.js` instance media loading methods.
 
@@ -192,37 +190,14 @@ var hls = new Hls(hlsjsConfig);
 var wrapper = new HlsjsP2PWrapper(p2pConfig, hls);
 
 // Use `hls` just like your usual hls.js…
+hls.loadSource(contentUrl);
+hls.attachMedia(video);
+hls.on(Hls.Events.MANIFEST_PARSED,function() {
+    video.play();
+});
 ```
 
-##### With async loading
-
-Create [`hls.js`](https://github.com/dailymotion/hls.js) instance passsing `hlsjsConfig` as param.
-Create [`hls.js`](https://github.com/dailymotion/hls.js) wrapper instance *when it's necessary in your case(for example, after `hls.js` instance loaded manifest)*, passing `p2pConfig` and `hls.js` as params.
-
-```javascript
-var hlsjsConfig = {
-    debug: true,
-    maxBufferSize: 0,       // Highly recommended setting
-    maxBufferLength: 30,    // Highly recommended setting
-    liveSyncDuration: 30    // Highly recommended setting
-};
-
-var hls = new Hls(hlsjsConfig);
-
-var p2pConfig = {
-    streamrootKey: YOUR_STREAMROOT_KEY_HERE
-};
-
-var wrapper;
-if (hls.url) {
-    wrapper = new HlsjsP2PWrapper(p2pConfig, hls);
-} else {
-    // async loading
-    hls.on(Hls.Events.MANIFEST_LOADING, function() {
-        wrapper = new HlsjsP2PWrapper(p2pConfig, hls);
-    });
-}
-```
+**Please note that you can intialize the wrapper any time after hls.js is initialized, even after calling `hls.attachSource` or `hls.attachMedia`, and even if the playback has started already. This late p2p init option is possible only with wrapper, bundle does not support this feature.**
 
 To see full sample code and extended possibilities of how to use this module, take a look at the code in the `example` directory.
 
