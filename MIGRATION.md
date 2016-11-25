@@ -40,7 +40,8 @@ var hlsjsConfig = {
 };
 
 var p2pConfig = {
-    streamrootKey: YOUR_STREAMROOT_KEY_HERE
+    streamrootKey: YOUR_STREAMROOT_KEY_HERE,
+    contentId: "myCustomContentId"  // Optional contentId now passed as a property of p2pConfig
 };
 
 var hls = new Hls(hlsjsConfig);
@@ -52,9 +53,3 @@ Create `Hls` instance passing hls.js config as a constructor param. Then create 
 If hls.js has not start loading manifest at the time of wrapper creation, wrapper will wait for `Hls.Events.MANIFEST_LOADING` event before initializing peer agent. Otherwise, peer agent will be initialized synchronously at the time of wrapper creation.
 
 So, you can instantiate the wrapper either immediately with hls.js, or later at any time of hls.js lifecycle.
-
-###### NOTE:
-
-You can still pass a custom `contentId` as a separate argument to wrapper constructor, but the recommended way is to pass it as a [p2pConfig](https://streamroot.readme.io/docs/p2p-config) property instead.
-
-

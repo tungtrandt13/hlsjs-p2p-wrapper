@@ -174,7 +174,7 @@ Include the wrapper build and [`hls.js`](https://github.com/dailymotion/hls.js) 
 ##### Without async loading
 
 Create [`hls.js`](https://github.com/dailymotion/hls.js) instance passsing `hlsjsConfig` as param.
-Create [`hls.js`](https://github.com/dailymotion/hls.js) wrapper instance passing `p2pConfig`, `hls.js` instance and optional `contentId` as params. Trigger `hls.js` instance media loading methods.
+Create [`hls.js`](https://github.com/dailymotion/hls.js) wrapper instance passing `p2pConfig` and `hls.js` instance as params. Trigger `hls.js` instance media loading methods.
 
 ```javascript
 var hlsjsConfig = {
@@ -197,7 +197,7 @@ var wrapper = new HlsjsP2PWrapper(p2pConfig, hls);
 ##### With async loading
 
 Create [`hls.js`](https://github.com/dailymotion/hls.js) instance passsing `hlsjsConfig` as param.
-Create [`hls.js`](https://github.com/dailymotion/hls.js) wrapper instance *when it's necessary in your case(for example, after `hls.js` instance loaded manifest)*, passing `p2pConfig`, `hls.js` instance and optional `contentId` as params.
+Create [`hls.js`](https://github.com/dailymotion/hls.js) wrapper instance *when it's necessary in your case(for example, after `hls.js` instance loaded manifest)*, passing `p2pConfig` and `hls.js` as params.
 
 ```javascript
 var hlsjsConfig = {

@@ -36,7 +36,7 @@
 
                     if (p2pEnabled) {
                         // Create wrapper where we DI the Hls.js instance
-                        var wrapper = new HlsjsP2PWrapper(config.p2pConfig, hls, config.p2pConfig.contentId);
+                        var wrapper = new HlsjsP2PWrapper(config.p2pConfig, hls);
                     }
 
                     hls.loadSource(config.contentUrl);
