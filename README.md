@@ -174,7 +174,7 @@ Include the wrapper build and [`hls.js`](https://github.com/dailymotion/hls.js) 
 ##### Without async loading
 
 Create [`hls.js`](https://github.com/dailymotion/hls.js) instance passsing `hlsjsConfig` as param.
-Create [`hls.js`](https://github.com/dailymotion/hls.js) wrapper instance passing `p2pConfig`, `hls.js` instance, `Hls.Events` enum, and optional `contentId` as params. Trigger `hls.js` instance media loading methods.
+Create [`hls.js`](https://github.com/dailymotion/hls.js) wrapper instance passing `p2pConfig`, `hls.js` instance and optional `contentId` as params. Trigger `hls.js` instance media loading methods.
 
 ```javascript
 var hlsjsConfig = {
@@ -189,7 +189,7 @@ var p2pConfig = {
 };
 
 var hls = new Hls(hlsjsConfig);
-var wrapper = new HlsjsP2PWrapper(p2pConfig, hls, Hls.Events);
+var wrapper = new HlsjsP2PWrapper(p2pConfig, hls);
 
 // Use `hls` just like your usual hls.js…
 ```
@@ -197,7 +197,7 @@ var wrapper = new HlsjsP2PWrapper(p2pConfig, hls, Hls.Events);
 ##### With async loading
 
 Create [`hls.js`](https://github.com/dailymotion/hls.js) instance passsing `hlsjsConfig` as param.
-Create [`hls.js`](https://github.com/dailymotion/hls.js) wrapper instance *when it's necessary in your case(for example, after `hls.js` instance loaded manifest)*, passing `p2pConfig`, `hls.js` instance, `Hls.Events` enum, and optional `contentId` as params.
+Create [`hls.js`](https://github.com/dailymotion/hls.js) wrapper instance *when it's necessary in your case(for example, after `hls.js` instance loaded manifest)*, passing `p2pConfig`, `hls.js` instance and optional `contentId` as params.
 
 ```javascript
 var hlsjsConfig = {
@@ -215,11 +215,11 @@ var p2pConfig = {
 
 var wrapper;
 if (hls.url) {
-    wrapper = new HlsjsP2PWrapper(p2pConfig, hls, Hls.Events);
+    wrapper = new HlsjsP2PWrapper(p2pConfig, hls);
 } else {
     // async loading
     hls.on(Hls.Events.MANIFEST_LOADING, function() {
-        wrapper = new HlsjsP2PWrapper(p2pConfig, hls, Hls.Events);
+        wrapper = new HlsjsP2PWrapper(p2pConfig, hls);
     });
 }
 ```

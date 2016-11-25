@@ -44,10 +44,10 @@ var p2pConfig = {
 };
 
 var hls = new Hls(hlsjsConfig);
-var wrapper = new HlsjsP2PWrapper(p2pConfig, hls, Hls.Events);
+var wrapper = new HlsjsP2PWrapper(p2pConfig, hls);
 ```
 
-Create `Hls` instance passing hls.js config as a constructor param. Then create `HlsjsP2PWrapper` instance passing `p2pConfig`, `Hls` instance, and `Hls.Events` enum as params.
+Create `Hls` instance passing hls.js config as a constructor param. Then create `HlsjsP2PWrapper` instance passing `p2pConfig` and `Hls` instance as params.
 
 If hls.js has not start loading manifest at the time of wrapper creation, wrapper will wait for `Hls.Events.MANIFEST_LOADING` event before initializing peer agent. Otherwise, peer agent will be initialized synchronously at the time of wrapper creation.
 
