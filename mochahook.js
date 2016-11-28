@@ -1,7 +1,7 @@
 import jsdom from 'jsdom';
 
 require('should');
-require("babel-core/register");
+require('babel-core/register');
 
 global.jsdom = jsdom.jsdom;
 global.document = global.jsdom('<!doctype html><html><body></body></html>');
