@@ -8,7 +8,7 @@ global.document = global.jsdom('<!doctype html><html><body></body></html>');
 global.window = global.document.defaultView;
 
 /**
- * Unsuported json globals
+ * Unsupported json globals
  */
 
 global.Blob = () => {};
