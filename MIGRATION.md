@@ -15,8 +15,7 @@ let video = document.getElementById('video');
 let wrapper = new HlsjsP2PWrapper(Hls);
 
 let p2pConfig = {
-    streamrootKey: "my-streamroot-key",
-    contentId: "myCustomContentId"  // Optional contentId now passed as a property of p2pConfig
+    streamrootKey: YOUR_STREAMROOT_KEY_HERE
 };
 
 // To create a new configured default player using the wrapper toolkit
@@ -40,8 +39,7 @@ var hlsjsConfig = {
 };
 
 var p2pConfig = {
-    streamrootKey: YOUR_STREAMROOT_KEY_HERE,
-    contentId: "myCustomContentId"  // Optional contentId now passed as a property of p2pConfig
+    streamrootKey: YOUR_STREAMROOT_KEY_HERE
 };
 
 var hls = new Hls(hlsjsConfig);
