@@ -172,7 +172,7 @@ Include the wrapper build and [`hls.js`](https://github.com/dailymotion/hls.js) 
 ```
 
 Create [`hls.js`](https://github.com/dailymotion/hls.js) instance passsing `hlsjsConfig` as param.
-Create [`hls.js`](https://github.com/dailymotion/hls.js) wrapper instance passing `p2pConfig` and `hls.js` instance as params. Trigger `hls.js` instance media loading methods.
+Create [`hls.js`](https://github.com/dailymotion/hls.js) wrapper instance passing `p2pConfig` and `hls.js` instance as params. Call hls.js `loadSource` and `attachMedia` methods.
 
 ```javascript
 var hlsjsConfig = {
