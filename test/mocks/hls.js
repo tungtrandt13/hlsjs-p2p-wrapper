@@ -52,6 +52,10 @@ class HlsMock {
         return Hls.DefaultConfig;
     }
 
+    static get Events() {
+        return {};
+    }
+
     on() {}
 
     trigger() {}

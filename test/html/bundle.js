@@ -14,9 +14,6 @@ describe("StreamrootHlsjsBundle", function() { // NOTE: We need to use the oldsc
 
     before(() => {
 
-        window._DEBUG_ = true;
-        window._TEST_ = false;
-
         config = {
             p2pConfig:{
                 streamrootKey: "ry-v7xuywnt",

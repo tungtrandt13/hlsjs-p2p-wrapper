@@ -31,29 +31,13 @@
 
                 // Check feature support
                 if (Hls.isSupported()) {
+                    var hls = new Hls(config.hlsjsConfig);
+                    var video = document.getElementById('video');
 
-                    var hls;
-
-                    const video = document.getElementById('video');
-
-                    // Create plain wrapper without DI (legacy way)
-                    const wrapper = new HlsjsP2PWrapper();
-
-                    // Create Hls.js instance your way
                     if (p2pEnabled) {
-                        hls = new Hls({
-                            fLoader: wrapper.P2PLoader
-                            // add your custom config here
-                        });
-
-                        hls.on(Hls.Events.MANIFEST_LOADING, function(event, data) {
-                            wrapper.createSRModule(config.p2pConfig, hls, Hls.Events, config.contentId);
-                        });                        
-                    } else {
-                        // fall back to non-P2P enabled engine
-                        hls = new Hls(config.hlsjsConfig);
+                        // Create wrapper where we DI the Hls.js instance
+                        var wrapper = new HlsjsP2PWrapper(config.p2pConfig, hls);
                     }
-
 
                     hls.loadSource(config.contentUrl);
                     hls.attachMedia(video);

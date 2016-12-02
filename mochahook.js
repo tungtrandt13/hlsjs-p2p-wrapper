@@ -1,5 +1,19 @@
-require('should');
-require("babel-core/register");
+import jsdom from 'jsdom';
 
-global.window = {};
-window.XMLHttpRequest = {};
+require('should');
+require('babel-core/register');
+
+global.jsdom = jsdom.jsdom;
+global.document = global.jsdom('<!doctype html><html><body></body></html>');
+global.window = global.document.defaultView;
+
+/**
+ * Unsupported json globals
+ */
+
+global.Blob = () => {};
+global.Worker = () => {};
+global.URL = {
+    createObjectURL: () => 'fakeUrl',
+    revokeObjectURL: () => {},
+};
