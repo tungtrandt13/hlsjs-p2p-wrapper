@@ -9,6 +9,7 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ### Changed
 - Wrapper instantiation: Hlsjs class injection replaced by hls.js instance injection. Wrapper can be initialized at any time of hls.js lifecycle(even after hls.js started playback) now.
+- Accessing peer agent public API: wrapper instance getters/setters `stats`, `p2pDownloadOn`, `p2pUploadOn` were removed, peer agent public API getter was introduced instead. -- `wrapper.peerAgent`. The list of getters it exposes: `wrapper.peerAgent.version` -- peer agent version, `wrapper.peerAgent.stats`, `wrapper.peerAgent.isP2PEnabled`. Getters/setters: `wrapper.peerAgent.p2pDownloadOn`, `wrapper.peerAgent.p2pUploadOn`;
 
 ### Removed
 - Due to simplifed wrapper creation, its methods `createMediaEngine`, `createPlayer`, `createSRModule`, `createPeerAgent` were removed.
