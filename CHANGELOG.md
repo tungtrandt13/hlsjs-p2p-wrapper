@@ -6,6 +6,7 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+- Patch for abandon request rule corner case
 
 ## [4.1.1] - 2016-12-09
 ### Changed
