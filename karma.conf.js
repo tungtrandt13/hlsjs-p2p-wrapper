@@ -12,10 +12,10 @@ module.exports = function(config) {
     ],
     browsers: browsers,
     plugins: [
-    	'karma-mocha',
-    	'karma-should',
-    	'karma-chrome-launcher',
-    	'karma-phantomjs-launcher'
+      'karma-mocha',
+      'karma-should',
+      'karma-chrome-launcher',
+      'karma-phantomjs-launcher'
     ],
 
     customLaunchers: {
