@@ -12,10 +12,11 @@ module.exports = function(config) {
     ],
     browsers: browsers,
     plugins: [
-    	'karma-mocha',
-    	'karma-should',
-    	'karma-chrome-launcher',
-    	'karma-phantomjs-launcher'
+      'karma-mocha',
+      'karma-mocha-reporter',
+      'karma-should',
+      'karma-chrome-launcher',
+      'karma-phantomjs-launcher'
     ],
 
     customLaunchers: {
@@ -33,5 +34,7 @@ module.exports = function(config) {
         flags: ['--disable-web-security']
       }
     },
+
+    reporters: ['mocha'],
   });
 };

@@ -6,7 +6,7 @@ It provides a **bundle** that extends the [`hls.js`](https://github.com/dailymot
 You can integrate this bundle with minimal changes in your application (you only need to add an additional argument to the [`hls.js`](https://github.com/dailymotion/hls.js) constructor). **The bundled version of [`hls.js`](https://github.com/dailymotion/hls.js) is [`v0.5.46`](https://github.com/dailymotion/hls.js/releases/tag/v0.5.46)**.
 
 It also provides a **wrapper** that allows you to create/configure a player with a specific version of [`hls.js`](https://github.com/dailymotion/hls.js).
-Supported versions of [`hls.js`](https://github.com/dailymotion/hls.js): from [`v0.5.46`](https://github.com/dailymotion/hls.js/releases/tag/v0.5.46) to [`v0.6.1`](https://github.com/dailymotion/hls.js/releases/tag/v0.6.1).
+Supported versions of [`hls.js`](https://github.com/dailymotion/hls.js): from [`v0.5.46`](https://github.com/dailymotion/hls.js/releases/tag/v0.5.46) to [`v0.6.12`](https://github.com/dailymotion/hls.js/releases/tag/v0.6.12).
 
 ### Install via npm
 

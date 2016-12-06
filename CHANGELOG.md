@@ -6,6 +6,7 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 ### Added
 - Wrapper instance version getter.
+- Wrapper now supports hls.js up to version v0.6.12.
 
 ### Changed
 - Wrapper instantiation: Hlsjs class injection replaced by hls.js instance injection. Wrapper can be initialized at any time of hls.js lifecycle(even after hls.js started playback) now.
