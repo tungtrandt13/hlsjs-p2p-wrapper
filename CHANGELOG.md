@@ -4,6 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This changelog's template come from [keepachangelog.com](http://keepachangelog.com/). When editing this document, please follow the convention specified there.
 
 ## [Dev]
+
+## [Unreleased]
+
+## [4.0.0] - 2016-12-06
 ### Added
 - Wrapper instance version getter.
 - Wrapper now supports hls.js up to version v0.6.12.
@@ -14,8 +18,6 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ### Removed
 - Due to simplifed wrapper creation, its methods `createMediaEngine`, `createPlayer`, `createSRModule`, `createPeerAgent` were removed.
-
-## [Unreleased]
 
 ## [3.9.1] - 2016-11-17
 - Add back liveSyncDuration default override when we control hls.js instantiation
