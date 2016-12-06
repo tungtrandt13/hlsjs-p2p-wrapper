@@ -11,13 +11,12 @@ describe("P2PLoaderGenerator", function() { // using plain ES5 function here
                                             // otherwise `this.timeout` is broken
 
     function createHls() {
-        let wrapper = new HlsjsWrapperMock();
-        let P2PLoader = p2pLoaderGenerator(wrapper);
         let hls = new Hls({
-            fLoader: P2PLoader,
             debug: true
         });
-        wrapper.hls = hls;
+        let wrapper = new HlsjsWrapperMock(hls);
+        let P2PLoader = p2pLoaderGenerator(wrapper);
+        hls.config.fLoader = P2PLoader;
 
         hls.on(Hls.Events.ERROR, (event, data) => {
             console.log(data);

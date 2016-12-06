@@ -4,7 +4,8 @@ import PeerAgentMock from "./peer-agent";
 
 class HlsjsWrapperMock {
 
-    constructor(Hls) {
+    constructor(hls) {
+        this.hls = hls;
         this.peerAgentModule = new PeerAgentMock();
     }
 

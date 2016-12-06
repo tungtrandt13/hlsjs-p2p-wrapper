@@ -5,8 +5,8 @@ This module wraps an instance of [`hls.js`](https://github.com/dailymotion/hls.j
 It provides a **bundle** that extends the [`hls.js`](https://github.com/dailymotion/hls.js) constructor to create a fully configured player which will use the Streamroot P2P module, giving you the exact same API.
 You can integrate this bundle with minimal changes in your application (you only need to add an additional argument to the [`hls.js`](https://github.com/dailymotion/hls.js) constructor). **The bundled version of [`hls.js`](https://github.com/dailymotion/hls.js) is [`v0.5.46`](https://github.com/dailymotion/hls.js/releases/tag/v0.5.46)**.
 
-It also provides a **wrapper** that allows you to create/configure a player with a specific version of [`hls.js`](https://github.com/dailymotion/hls.js).  
-Supported versions of [`hls.js`](https://github.com/dailymotion/hls.js): from [`v0.5.46`](https://github.com/dailymotion/hls.js/releases/tag/v0.5.46) to [`v0.6.1`](https://github.com/dailymotion/hls.js/releases/tag/v0.6.1).
+It also provides a **wrapper** that allows you to create/configure a player with a specific version of [`hls.js`](https://github.com/dailymotion/hls.js).
+Supported versions of [`hls.js`](https://github.com/dailymotion/hls.js): from [`v0.5.46`](https://github.com/dailymotion/hls.js/releases/tag/v0.5.46) to [`v0.6.12`](https://github.com/dailymotion/hls.js/releases/tag/v0.6.12).
 
 ### Install via npm
 
@@ -142,12 +142,14 @@ Create `hls.js` instance passing `hlsjsConfig` and `p2pConfig` as constructor pa
 
 ```javascript
 var hlsjsConfig = {
-    debug: true
+    debug: true,
+    maxBufferSize: 0,       // Highly recommended setting
+    maxBufferLength: 30,    // Highly recommended setting
+    liveSyncDuration: 30    // Highly recommended setting
 };
 
 var p2pConfig = {
-    streamrootKey: YOUR_STREAMROOT_KEY_HERE,
-    debug: true
+    streamrootKey: YOUR_STREAMROOT_KEY_HERE
 };
 
 // Hls constructor is overriden by included bundle
@@ -169,57 +171,52 @@ Include the wrapper build and [`hls.js`](https://github.com/dailymotion/hls.js) 
 </head>
 ```
 
-##### Without async loading
+Create [`hls.js`](https://github.com/dailymotion/hls.js) instance passsing `hlsjsConfig` as param.
+Create [`hls.js`](https://github.com/dailymotion/hls.js) wrapper instance passing `p2pConfig` and `hls.js` instance as params. Call hls.js `loadSource` and `attachMedia` methods.
 
-Create [`hls.js`](https://github.com/dailymotion/hls.js) wrapper instance passing reference to `Hls` as constructor param. Create [`hls.js`](https://github.com/dailymotion/hls.js) instance using wrapper's `createPlayer` methods passing `hlsjsConfig` and `p2pConfig` as params.
+**Please note that you can intialize the wrapper any time after hls.js is initialized, even after calling `hls.attachSource` or `hls.attachMedia`, and even if the playback has started already. This late p2p init option is possible only with wrapper, bundle does not support this feature.**
+
 
 ```javascript
-var hlsjsConfig = {};
+var hlsjsConfig = {
+    debug: true,
+    maxBufferSize: 0,       // Highly recommended setting
+    maxBufferLength: 30,    // Highly recommended setting
+    liveSyncDuration: 30    // Highly recommended setting
+};
 
 var p2pConfig = {
     streamrootKey: YOUR_STREAMROOT_KEY_HERE
-};
-
-var wrapper = new HlsjsP2PWrapper(Hls);
-var hls = wrapper.createPlayer(hlsjsConfig, p2pConfig);
-// Use `hls` just like your usual hls.js…
-```
-
-##### With async loading
-```javascript
-var hlsjsConfig = {
-    maxBufferSize: 0,		// Highly recommended setting
-    maxBufferLength: 30		// Highly recommended setting
 };
 
 var hls = new Hls(hlsjsConfig);
+var wrapper = new HlsjsP2PWrapper(p2pConfig, hls);
 
-var wrapper = new HlsjsP2PWrapper(Hls);
-
-// This part can be executed later
-hls.config.fLoader = wrapper.P2PLoader;
-hls.config.maxBufferSize = 0;
-hls.config.maxBufferLength = 30;
-
-var p2pConfig = {
-    streamrootKey: YOUR_STREAMROOT_KEY_HERE
-};
-
-if (hls.url) {
-    wrapper.createSRModule(p2pConfig, hls, Hls.Events);
-} else {
-    hls.on(Hls.Events.MANIFEST_LOADING, function() {
-        wrapper.createSRModule(p2pConfig, hls, Hls.Events);
-    });
-}
+// Use `hls` just like your usual hls.js…
+hls.loadSource(contentUrl);
+hls.attachMedia(video);
+hls.on(Hls.Events.MANIFEST_PARSED,function() {
+    video.play();
+});
 ```
-
 
 To see full sample code and extended possibilities of how to use this module, take a look at the code in the `example` directory.
 
 ### Configuration
 
-Specify your `streamrootKey` in the `p2pConfig` object. If you don't have it, go to [Streamroot's dashboard](http://dashboard.streamroot.io/) and sign up. It's free. You can check other `p2pConfig` options in the [documentation](https://streamroot.readme.io/docs/p2p-config) and our recommendations about [`hls.js`](https://github.com/dailymotion/hls.js) configuration [here](https://streamroot.readme.io/docs/hls-config).
+Specify your `streamrootKey` in the `p2pConfig` object. If you don't have it, go to [Streamroot's dashboard](http://dashboard.streamroot.io/) and sign up. It's free. You can check other `p2pConfig` options in the [documentation](https://streamroot.readme.io/docs/p2p-config).
+
+Recommended `hlsjsConfig` settings:
+
+```javascript
+var hlsjsConfig = {
+    maxBufferSize: 0,       // Highly recommended setting
+    maxBufferLength: 30,    // Highly recommended setting
+    liveSyncDuration: 30    // Highly recommended setting
+};
+```
+
+Detailed recommendations about [`hls.js`](https://github.com/dailymotion/hls.js) configuration [here](https://streamroot.readme.io/docs/hls-config).
 
 ### Statistics
 

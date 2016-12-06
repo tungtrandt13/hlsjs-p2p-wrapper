@@ -4,6 +4,16 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This changelog's template come from [keepachangelog.com](http://keepachangelog.com/). When editing this document, please follow the convention specified there.
 
 ## [Dev]
+### Added
+- Wrapper instance version getter.
+- Wrapper now supports hls.js up to version v0.6.12.
+
+### Changed
+- Wrapper instantiation: Hlsjs class injection replaced by hls.js instance injection. Wrapper can be initialized at any time of hls.js lifecycle(even after hls.js started playback) now.
+- Accessing peer agent public API: wrapper instance getters/setters `stats`, `p2pDownloadOn`, `p2pUploadOn` were removed, peer agent public API getter was introduced instead. -- `wrapper.peerAgent`. The list of getters it exposes: `wrapper.peerAgent.version` -- peer agent version, `wrapper.peerAgent.stats`, `wrapper.peerAgent.isP2PEnabled`. Getters/setters: `wrapper.peerAgent.p2pDownloadOn`, `wrapper.peerAgent.p2pUploadOn`;
+
+### Removed
+- Due to simplifed wrapper creation, its methods `createMediaEngine`, `createPlayer`, `createSRModule`, `createPeerAgent` were removed.
 
 ## [Unreleased]
 
