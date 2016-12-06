@@ -59,6 +59,7 @@
     "karma": "^0.13.22",
     "karma-chrome-launcher": "^1.0.1",
     "karma-mocha": "^1.0.1",
+    "karma-mocha-reporter": "^2.2.1",
     "karma-phantomjs-launcher": "^1.0.1",
     "karma-should": "^1.0.0",
     "matchdep": "^1.0.1",
