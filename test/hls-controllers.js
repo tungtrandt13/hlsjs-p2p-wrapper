@@ -21,8 +21,9 @@ describe("Hls controllers", () => {
             level: 1
         };
 
+        let now = Date.now();
         const stats = {
-            trequest: Date.now() - 1000,
+            trequest: now - 1000,
             loaded: 128000
         };
 
@@ -45,9 +46,10 @@ describe("Hls controllers", () => {
             sn: 0
         };
 
+        let now = Date.now();
         const stats = {
-            trequest: Date.now() - 1000,
-            tfirst: Date.now() - 1000,
+            trequest: now - 1000,
+            tfirst: now - 1000,
             loaded: 128000,
             length: 128000
         };
