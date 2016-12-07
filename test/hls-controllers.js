@@ -18,12 +18,15 @@ describe("Hls controllers", () => {
         const frag = {
             loadCounter: 1,
             url: "http://foo.bar/foo",
-            level: 1
+            level: 1,
+            bitrateTest: true,
+            type: "main"
         };
 
         let now = Date.now();
         const stats = {
             trequest: now - 1000,
+            tload: now,
             loaded: 128000
         };
 
@@ -43,7 +46,8 @@ describe("Hls controllers", () => {
             loadCounter: 1,
             url: "http://foo.bar/foo",
             level: 1,
-            sn: 0
+            sn: 0,
+            type: "main"
         };
 
         let now = Date.now();
@@ -51,7 +55,7 @@ describe("Hls controllers", () => {
             trequest: now - 1000,
             tfirst: now - 1000,
             loaded: 128000,
-            length: 128000
+            total: 128000
         };
 
         // monkey-patch up a working StreamController
@@ -75,7 +79,7 @@ describe("Hls controllers", () => {
         };
 
         streamController.doTick = function() {};
-        streamController.onBufferAppended();
+        streamController.onBufferAppended({parent: 'main'});
 
         streamController.fragLastKbps.should.be.approximately(1024, 8);
 
