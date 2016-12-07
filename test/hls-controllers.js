@@ -81,7 +81,7 @@ describe("Hls controllers", () => {
         streamController.doTick = function() {};
         streamController.onBufferAppended({parent: 'main'});
 
-        streamController.fragLastKbps.should.be.approximately(1024, 8);
+        streamController.fragLastKbps.should.be.approximately(1000, 24);
 
     });
 
