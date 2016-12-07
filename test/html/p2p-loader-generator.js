@@ -54,7 +54,9 @@ describe("P2PLoaderGenerator", function() { // using plain ES5 function here
         const frag = {
             loadCounter: 1,
             url: TEST_URL1,
-            level: 0
+            level: 0,
+            bitrateTest: true,
+            type: "main",
         };
 
         hls.levelController._levels = hlsjsMock.levels;
@@ -118,7 +120,8 @@ describe("P2PLoaderGenerator", function() { // using plain ES5 function here
 
         let frag = {
             url: TEST_URL1 + "foo",
-            level: 0
+            level: 0,
+            type: "main",
         };
 
         hls.levelController._levels = hlsjsMock.levels;

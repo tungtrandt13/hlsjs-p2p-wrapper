@@ -4,6 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This changelog's template come from [keepachangelog.com](http://keepachangelog.com/). When editing this document, please follow the convention specified there.
 
 ## [Dev]
+### Changed
+- Changed bundled hls.js version from v0.5.46 to v0.6.12.
 
 ## [Unreleased]
 
