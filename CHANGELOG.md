@@ -5,7 +5,7 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [Dev]
 ### Changed
-- Bundled hls.js version from v0.5.46 to v0.6.12.
+- Changed bundled hls.js version from v0.5.46 to v0.6.12.
 
 ## [Unreleased]
 
