@@ -218,20 +218,16 @@ var hlsjsConfig = {
 
 Detailed recommendations about [`hls.js`](https://github.com/dailymotion/hls.js) configuration [here](https://streamroot.readme.io/docs/hls-config).
 
-### Statistics
+### Peer agent instance exposure
 
 #### Bundle
 
-No statistics available yet.
+Not available yet.
 
 #### Wrapper
 
-A `stats` object is available on a `HlsjsP2PWrapper` instance and contains the following properties:
-
-- `cdn`: cdn downloaded (cumulated bytes).
-- `p2p`: p2p offloaded from cdn (cumulated bytes).
-- `upload`: p2p uploaded (cumulated bytes).
-- `peers`: real time connected peers count.
+A `peerAgent` public API is exposed on a`HlsjsP2PWrapper` instance -- `wrapper.peerAgent`.
+List of peerAgent's public API getters/setters is documented here https://streamroot.readme.io/docs/peeragent-class-reference.
 
 ### Run demos
 
