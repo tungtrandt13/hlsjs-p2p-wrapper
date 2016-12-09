@@ -4,10 +4,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This changelog's template come from [keepachangelog.com](http://keepachangelog.com/). When editing this document, please follow the convention specified there.
 
 ## [Dev]
-### Changed
-- Wrapper.peerAgent now returns `null` if peer agent module is not initialized yet.
 
 ## [Unreleased]
+
+## [4.1.1] - 2016-12-09
+### Changed
+- Wrapper.peerAgent now returns `null` if peer agent module is not initialized yet.
 
 ## [4.1.0] - 2016-12-07
 ### Changed
