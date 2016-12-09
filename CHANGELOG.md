@@ -7,6 +7,10 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [Unreleased]
 
+## [4.1.1] - 2016-12-09
+### Changed
+- Wrapper.peerAgent now returns `null` if peer agent module is not initialized yet.
+
 ## [4.1.0] - 2016-12-07
 ### Changed
 - Changed bundled hls.js version from v0.5.46 to v0.6.12.
