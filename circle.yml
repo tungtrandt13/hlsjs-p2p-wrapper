@@ -8,7 +8,7 @@ machine:
 dependencies:
     pre:
         - gem install aws-sdk
-        - npm install -g grunt-cli
+        - npm install -g webpack
         - 'echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > ~/.npmrc'
 
         # Clone tool
@@ -40,8 +40,8 @@ deployment:
         branch: /^(?!(?:dev|master)$).+$/
         commands:
             # Upload dist
-            - grunt browserify:bundle
-            - grunt browserify:wrapper
+            - npm run build:bundle
+            - npm run build:wrapper
 
             - toolkit/add_banner.rb --file dist/bundle/$DIST_BUNDLE
                                     --deploy_env $CIRCLE_BRANCH
@@ -80,8 +80,8 @@ deployment:
             - toolkit/set_version.rb --version $(toolkit/current_version.rb --beta ${CIRCLE_BUILD_NUM})
 
             # Generate dist
-            - grunt browserify:bundle
-            - grunt browserify:wrapper
+            - npm run build:bundle
+            - npm run build:wrapper
 
             - toolkit/add_banner.rb --file dist/bundle/$DIST_BUNDLE
                                     --deploy_env staging
@@ -171,8 +171,8 @@ deployment:
             - rm -rf dist
 
             # Generate dist
-            - grunt browserify:bundle
-            - grunt browserify:wrapper
+            - npm run build:bundle
+            - npm run build:wrapper
 
             - toolkit/add_banner.rb --file dist/bundle/$DIST_BUNDLE
                                     --version $(toolkit/current_version.rb)

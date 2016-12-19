@@ -45,36 +45,8 @@ module.exports = function (grunt) {
         version: '<%= pkg.version %>',
         file_version: '',
 
-        shell: {
-            install: {
-                command: 'npm install'
-            },
-            start: {
-                command: 'npm run start'
-            },
-            docs: {
-                command: 'npm run docs'
-            }
-        },
-
         /* Compile & watch */
         browserify: {
-            wrapper:     makeBrowserifyTask("lib/hlsjs-p2p-wrapper.js",
-                                                 "dist/wrapper/hlsjs-p2p-wrapper.js",
-                                                 "HlsjsP2PWrapper",
-                                                 false),
-            wrapper_dev: makeBrowserifyTask("lib/hlsjs-p2p-wrapper.js",
-                                                 "dist/wrapper/hlsjs-p2p-wrapper.js",
-                                                 "HlsjsP2PWrapper",
-                                                 true),
-            bundle:          makeBrowserifyTask("lib/hlsjs-p2p-bundle.js",
-                                                 "dist/bundle/hlsjs-p2p-bundle.js",
-                                                 "Hls",
-                                                 false),
-            bundle_dev:      makeBrowserifyTask("lib/hlsjs-p2p-bundle.js",
-                                                 "dist/bundle/hlsjs-p2p-bundle.js",
-                                                 "Hls",
-                                                 true),
             test_dev: makeBrowserifyTask("test/html/tests.js",
                                     "test/html/build.js",
                                     "Tests",
@@ -87,32 +59,4 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('bundle', [
-        'shell:install',
-        'browserify:bundle'
-    ]);
-
-    grunt.registerTask('wrapper', [
-        'shell:install',
-        'browserify:wrapper'
-    ]);
-
-    grunt.registerTask('build', [
-        'shell:install',
-        'browserify:wrapper',
-        'browserify:bundle'
-    ])
-
-    grunt.registerTask('demo', [
-        'shell:install',
-        'browserify:bundle',
-        'browserify:wrapper',
-        'shell:start'
-    ]);
-
-    grunt.registerTask('docs', [
-        'shell:install',
-        'shell:docs',
-        'shell:start'
-    ]);
 };
