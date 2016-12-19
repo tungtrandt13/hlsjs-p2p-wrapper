@@ -7,6 +7,9 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [Unreleased]
 
+## [4.1.5] - 2016-12-19
+- Patch for abandon request rule corner case
+
 ## [4.1.1] - 2016-12-09
 ### Changed
 - Wrapper.peerAgent now returns `null` if peer agent module is not initialized yet.
