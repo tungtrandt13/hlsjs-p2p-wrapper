@@ -241,7 +241,7 @@ This will start a server.
 
 Go to <http://localhost:8080/example> for the Streamroot demo.
 
-Go to <http://localhost:8080/demo> for the [`hls.js`](https://github.com/dailymotion/hls.js) demo.
+Go to <http://localhost:8080/demo-hls.js> for the [`hls.js`](https://github.com/dailymotion/hls.js) demo.
 
 To see some p2p traffic open several browser tabs/windows playing the same manifest (so there will be peers to exchange p2p traffic).
 
