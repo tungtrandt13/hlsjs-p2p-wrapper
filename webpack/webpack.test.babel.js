@@ -17,19 +17,6 @@ export default Object.assign(baseConfig, {
     },
 
     plugins: [
-        new webpack.optimize.DedupePlugin(),
-        new webpack.optimize.OccurrenceOrderPlugin(true),
-        new webpack.optimize.UglifyJsPlugin({
-            sourceMap: false,
-            compress: {
-                drop_console: true,
-                warnings: false,
-            },
-            mangle: true,
-            output: {
-                comments: false,
-            },
-        }),
         new webpack.DefinePlugin({
             _VERSION_: JSON.stringify(version),
         }),
