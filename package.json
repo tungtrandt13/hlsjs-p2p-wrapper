@@ -22,6 +22,7 @@
     "demo": "npm run build && npm run start",
     "test": "node_modules/.bin/mocha --compilers js:babel-core/register --require mochahook",
     "karma": "webpack --progress --config webpack/webpack.test.babel.js && ./node_modules/.bin/karma start --single-run",
+    "karma_dev": "webpack --progress --watch --config webpack/webpack.test.babel.js && ./node_modules/.bin/karma start --single-run",
     "docs": "./node_modules/.bin/jsdoc -d docs lib/hlsjs-p2p-wrapper.js lib/hlsjs-p2p-bundle.js",
     "lint": "node_modules/.bin/eslint lib/ test/",
     "start": "webpack-dev-server -d",

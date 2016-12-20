@@ -117,10 +117,10 @@ For integration tests in dev mode (Mocha suite running in your favorite browser,
 npm start
 ```
 
-2. Start compile&watch browserify process (in another shell):
+2. Start compile&watch process (in another shell):
 
 ```
-grunt browserify:test_dev
+npm run karma_dev
 ```
 
 3. Go to http://localhost:8080/test/html/
