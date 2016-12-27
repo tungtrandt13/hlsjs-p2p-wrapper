@@ -46,9 +46,9 @@ Since the installation uses a Ruby script, you need Ruby to be installed on your
 
 Finally, one of the install steps assumes the presence of `wget` on your system. Again this is most likely installed on all Unix based systems. If you have a Mac, you could use [Homebrew](https://brew.sh/) and then run `brew install wget`.
 
-Grunt is used for running build tasks, so make sure that you have `grunt-cli` installed in your global node binaries otherwise install it like this:
+Webpack is used for building, so make sure that you have `webpack` installed in your global node binaries otherwise install it like this:
 ```
-sudo npm install -g grunt-cli
+sudo npm install -g webpack
 ```
 
 #### Clone this repo
@@ -67,7 +67,7 @@ npm install
 
 Run this task to build it:
 ```
-grunt browserify:bundle
+npm run build:bundle
 ```
 
 Now you can include `dist/bundle/hlsjs-p2p-bundle.js` in your application.
@@ -75,14 +75,14 @@ Now you can include `dist/bundle/hlsjs-p2p-bundle.js` in your application.
 To build and compile-watch development/debug version use:
 
 ```
-grunt browserify:bundle_dev
+npm run build:bundle_dev
 ```
 
 #### Build wrapper
 
 Run this task to build it:
 ```
-grunt browserify:wrapper
+npm run build:wrapper
 ```
 
 Now you can include `dist/wrapper/hlsjs-p2p-wrapper.js` in your application.
@@ -90,7 +90,7 @@ Now you can include `dist/wrapper/hlsjs-p2p-wrapper.js` in your application.
 To build and compile-watch development/debug version use:
 
 ```
-grunt browserify:wrapper_dev
+npm run build:wrapper_dev
 ```
 
 ### Tests
@@ -117,10 +117,10 @@ For integration tests in dev mode (Mocha suite running in your favorite browser,
 npm start
 ```
 
-2. Start compile&watch browserify process (in another shell):
+2. Start compile&watch process (in another shell):
 
 ```
-grunt browserify:test_dev
+npm run karma_dev
 ```
 
 3. Go to http://localhost:8080/test/html/
@@ -234,14 +234,14 @@ List of peerAgent's public API getters/setters is documented here https://stream
 To build and run the shipped [`hls.js`](https://github.com/dailymotion/hls.js) and Streamroot demos run:
 
 ```
-grunt demo
+npm run demo
 ```
 
 This will start a server.
 
 Go to <http://localhost:8080/example> for the Streamroot demo.
 
-Go to <http://localhost:8080/demo> for the [`hls.js`](https://github.com/dailymotion/hls.js) demo.
+Go to <http://localhost:8080/demo-hls.js> for the [`hls.js`](https://github.com/dailymotion/hls.js) demo.
 
 To see some p2p traffic open several browser tabs/windows playing the same manifest (so there will be peers to exchange p2p traffic).
 
@@ -252,7 +252,7 @@ The public API documentation is generated from the code.
 After clonig the repo run:
 
 ```
-grunt docs
+npm run docs
 ```
 
 ### Player integration
