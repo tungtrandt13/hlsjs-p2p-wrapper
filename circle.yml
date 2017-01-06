@@ -149,7 +149,7 @@ deployment:
 
             # Install debug peer-agent
             - rm -rf node_modules/streamroot-p2p
-            - npm install @streamroot/peer-agent-debug
+            - npm install @streamroot/peer-agent-debug@beta
             - mv node_modules/@streamroot/peer-agent-debug node_modules/streamroot-p2p
 
             # Generate dist
