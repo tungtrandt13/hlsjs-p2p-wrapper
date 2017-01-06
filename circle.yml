@@ -335,8 +335,8 @@ deployment:
             - cp -R lib dist/wrapper/
 
             # Publish
-            - npm publish dist/bundle
-            - npm publish dist/wrapper
+            - npm publish dist/bundle --tag rc
+            - npm publish dist/wrapper --tag rc
 
             #
             ## End Debug builds
