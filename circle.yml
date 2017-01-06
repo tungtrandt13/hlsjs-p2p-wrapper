@@ -192,6 +192,24 @@ deployment:
             ## End Debug builds
             #
 
+            # Generate manifest
+            - toolkit/build_manifest.rb --name "Hls.js Wrapper/Bundle"
+                                        --version $(toolkit/current_version.rb)
+                                        --platform "web"
+                                        --artifacts ./$DIST_BUNDLE ./$DIST_WRAPPER
+                                        --debug-artifacts   "https://circleci.com/api/v1/project/streamroot/hlsjs-p2p-wrapper/$CIRCLE_BUILD_NUM/artifacts/0/\$CIRCLE_ARTIFACTS/$BUNDLE_NAME.debug.js"
+                                                            "https://circleci.com/api/v1/project/streamroot/hlsjs-p2p-wrapper/$CIRCLE_BUILD_NUM/artifacts/0/\$CIRCLE_ARTIFACTS/$WRAPPER_NAME.debug.js"
+                                        --doc "https://github.com/streamroot/hlsjs-p2p-wrapper/tree/dev"
+                                        --output $CIRCLE_ARTIFACTS/manifest.yml
+
+            - toolkit/upload_to_s3.rb --bucket preprod.streamroot.io
+                                      --region eu-west-1
+                                      --file $CIRCLE_ARTIFACTS/manifest.yml
+                                      --destinations $CIRCLE_PROJECT_REPONAME/$(toolkit/current_version.rb)/manifest.yml
+                                                     $CIRCLE_PROJECT_REPONAME/latest/manifest.yml
+                                      --key $S3_KEY
+                                      --secret $S3_SECRET
+
             # Run bridge
             - bridge/run.rb --current_module $CIRCLE_PROJECT_REPONAME --trigger_branch dev --token $BRIDGE_TOKEN
 
@@ -334,6 +352,26 @@ deployment:
             #
             ## End Debug builds
             #
+
+            # Generate manifest
+            - toolkit/build_manifest.rb --name "Hls.js Wrapper/Bundle"
+                                        --version $(toolkit/current_version.rb)
+                                        --platform "web"
+                                        --artifacts ./$DIST_BUNDLE ./$DIST_WRAPPER
+                                        --debug-artifacts   "https://circleci.com/api/v1/project/streamroot/hlsjs-p2p-wrapper/$CIRCLE_BUILD_NUM/artifacts/0/\$CIRCLE_ARTIFACTS/$BUNDLE_NAME.debug.js"
+                                                            "https://circleci.com/api/v1/project/streamroot/hlsjs-p2p-wrapper/$CIRCLE_BUILD_NUM/artifacts/0/\$CIRCLE_ARTIFACTS/$WRAPPER_NAME.debug.js"
+                                        --doc "https://github.com/streamroot/hlsjs-p2p-wrapper"
+                                        --output $CIRCLE_ARTIFACTS/manifest.yml
+
+            - toolkit/upload_to_s3.rb --bucket preprod.streamroot.io
+                                      --region eu-west-1
+                                      --file $CIRCLE_ARTIFACTS/manifest.yml
+                                      --destinations $CIRCLE_PROJECT_REPONAME/$(toolkit/current_version.rb --major)/manifest.yml
+                                                     $CIRCLE_PROJECT_REPONAME/$(toolkit/current_version.rb --no_patch)/manifest.yml
+                                                     $CIRCLE_PROJECT_REPONAME/$(toolkit/current_version.rb)/manifest.yml
+                                                     $CIRCLE_PROJECT_REPONAME/latest/manifest.yml
+                                      --key $S3_KEY
+                                      --secret $S3_SECRET
 
             # Run bridge
             - bridge/run.rb --current_module $CIRCLE_PROJECT_REPONAME --trigger_branch master --token $BRIDGE_TOKEN
