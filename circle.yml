@@ -131,15 +131,6 @@ deployment:
                                       --key $S3_KEY
                                       --secret $S3_SECRET
 
-            # Changelog
-            - toolkit/post_changelog.rb   --project $CIRCLE_PROJECT_REPONAME
-                                          --env staging
-                                          --subtitle $POST_SUBTITLE
-                                          --channel $SLACK_CHANNEL
-                                          --slack-token $SLACK_TOKEN
-                                          --username $POST_USERNAME
-                                          --icon-url $POST_PICTURE
-
             #
             ## Debug builds
             #
@@ -209,7 +200,14 @@ deployment:
                                                      $CIRCLE_PROJECT_REPONAME/latest/manifest.yml
                                       --key $S3_KEY
                                       --secret $S3_SECRET
-
+            # Changelog
+            - toolkit/post_changelog.rb   --project $CIRCLE_PROJECT_REPONAME
+                                          --env staging
+                                          --subtitle $POST_SUBTITLE
+                                          --channel $SLACK_CHANNEL
+                                          --slack-token $SLACK_TOKEN
+                                          --username $POST_USERNAME
+                                          --icon-url $POST_PICTURE
             # Run bridge
             - bridge/run.rb --current_module $CIRCLE_PROJECT_REPONAME --trigger_branch dev --token $BRIDGE_TOKEN
 
@@ -294,15 +292,6 @@ deployment:
                                       --key $S3_KEY
                                       --secret $S3_SECRET
 
-            # Changelog
-            - toolkit/post_changelog.rb   --project $CIRCLE_PROJECT_REPONAME
-                                          --env preprod
-                                          --subtitle $POST_SUBTITLE
-                                          --channel $PREPROD_SLACK_CHANNEL
-                                          --slack-token $SLACK_TOKEN
-                                          --username $POST_USERNAME
-                                          --icon-url $POST_PICTURE
-
             #
             ## Debug builds
             #
@@ -372,6 +361,15 @@ deployment:
                                                      $CIRCLE_PROJECT_REPONAME/latest/manifest.yml
                                       --key $S3_KEY
                                       --secret $S3_SECRET
+
+            # Changelog
+            - toolkit/post_changelog.rb   --project $CIRCLE_PROJECT_REPONAME
+                                          --env preprod
+                                          --subtitle $POST_SUBTITLE
+                                          --channel $PREPROD_SLACK_CHANNEL
+                                          --slack-token $SLACK_TOKEN
+                                          --username $POST_USERNAME
+                                          --icon-url $POST_PICTURE
 
             # Run bridge
             - bridge/run.rb --current_module $CIRCLE_PROJECT_REPONAME --trigger_branch master --token $BRIDGE_TOKEN
