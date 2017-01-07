@@ -163,11 +163,11 @@ deployment:
             # Build package.json
             - toolkit/build_dist_package.rb --version $(toolkit/current_version.rb)
                                             --main ./$BUNDLE_NAME.debug.js
-                                            --name @streamroot/$BUNDLE_NAME-debug
+                                            --name @streamroot/hlsjs-p2p-bundle-debug
                                             -o dist/bundle/package.json
             - toolkit/build_dist_package.rb --version $(toolkit/current_version.rb)
                                             --main ./$WRAPPER_NAME.debug.js
-                                            --name @streamroot/$WRAPPER_NAME-debug
+                                            --name @streamroot/hlsjs-p2p-wrapper-debug
                                             -o dist/wrapper/package.json
 
             # Copy sources (lib) into wrapper dist folder
@@ -322,11 +322,11 @@ deployment:
             # Build package.json
             - toolkit/build_dist_package.rb --version $(toolkit/current_version.rb)
                                             --main ./$BUNDLE_NAME.debug.js
-                                            --name @streamroot/$BUNDLE_NAME-debug
+                                            --name @streamroot/hlsjs-p2p-bundle-debug
                                             -o dist/bundle/package.json
             - toolkit/build_dist_package.rb --version $(toolkit/current_version.rb)
                                             --main ./$WRAPPER_NAME.debug.js
-                                            --name @streamroot/$WRAPPER_NAME-debug
+                                            --name @streamroot/hlsjs-p2p-wrapper-debug
                                             -o dist/wrapper/package.json
 
             # Copy sources (lib) into wrapper dist folder
