@@ -4,10 +4,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This changelog's template come from [keepachangelog.com](http://keepachangelog.com/). When editing this document, please follow the convention specified there.
 
 ## [Dev]
-### Changed
-- Replaced Grunt with Webpack.
 
 ## [Unreleased]
+
+## [4.2.0] - 2017-01-10
+### Changed
+- Replaced Grunt with Webpack.
 
 ## [4.1.5] - 2016-12-19
 - Patch for abandon request rule corner case
