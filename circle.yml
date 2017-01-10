@@ -8,7 +8,7 @@ machine:
 dependencies:
     pre:
         - gem install aws-sdk
-        - npm install -g grunt-cli
+        - npm install -g webpack
         - 'echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > ~/.npmrc'
 
         # Clone tool
@@ -40,8 +40,8 @@ deployment:
         branch: /^(?!(?:dev|master)$).+$/
         commands:
             # Upload dist
-            - grunt browserify:bundle
-            - grunt browserify:wrapper
+            - npm run build:bundle
+            - npm run build:wrapper
 
             - toolkit/add_banner.rb --file dist/bundle/$DIST_BUNDLE
                                     --deploy_env $CIRCLE_BRANCH
@@ -80,8 +80,8 @@ deployment:
             - toolkit/set_version.rb --version $(toolkit/current_version.rb --beta ${CIRCLE_BUILD_NUM})
 
             # Generate dist
-            - grunt browserify:bundle
-            - grunt browserify:wrapper
+            - npm run build:bundle
+            - npm run build:wrapper
 
             - toolkit/add_banner.rb --file dist/bundle/$DIST_BUNDLE
                                     --deploy_env staging
@@ -131,6 +131,75 @@ deployment:
                                       --key $S3_KEY
                                       --secret $S3_SECRET
 
+            #
+            ## Debug builds
+            #
+
+            # Cleanup
+            - rm -rf dist
+
+            # Install debug peer-agent
+            - rm -rf node_modules/streamroot-p2p
+            - npm install @streamroot/peer-agent-debug@beta
+            - mv node_modules/@streamroot/peer-agent-debug node_modules/streamroot-p2p
+
+            # Generate dist
+            - npm run build:bundle
+            - npm run build:wrapper
+
+            - toolkit/add_banner.rb --file dist/bundle/$DIST_BUNDLE
+                                    --deploy_env staging
+                                    --version $(toolkit/current_version.rb)
+                                    --dependencies @streamroot/peer-agent-debug hls.js
+                                    --name $BUNDLE_NAME-debug
+            - toolkit/add_banner.rb --file dist/wrapper/$DIST_WRAPPER
+                                    --deploy_env staging
+                                    --version $(toolkit/current_version.rb)
+                                    --dependencies @streamroot/peer-agent-debug
+
+            - cp dist/bundle/$DIST_BUNDLE $CIRCLE_ARTIFACTS/$BUNDLE_NAME.debug.js
+            - cp dist/wrapper/$DIST_WRAPPER $CIRCLE_ARTIFACTS/$WRAPPER_NAME.debug.js
+
+            # Build package.json
+            - toolkit/build_dist_package.rb --version $(toolkit/current_version.rb)
+                                            --main ./$BUNDLE_NAME.debug.js
+                                            --name @streamroot/hlsjs-p2p-bundle-debug
+                                            -o dist/bundle/package.json
+            - toolkit/build_dist_package.rb --version $(toolkit/current_version.rb)
+                                            --main ./$WRAPPER_NAME.debug.js
+                                            --name @streamroot/hlsjs-p2p-wrapper-debug
+                                            -o dist/wrapper/package.json
+
+            # Copy sources (lib) into wrapper dist folder
+            # We ship the sources to be able to access private API
+            # for integration testing usage
+            - cp -R lib dist/wrapper/
+
+            # Publish
+            - npm publish dist/bundle --tag beta
+            - npm publish dist/wrapper --tag beta
+
+            #
+            ## End Debug builds
+            #
+
+            # Generate manifest
+            - toolkit/build_manifest.rb --name "Hls.js Wrapper/Bundle"
+                                        --version $(toolkit/current_version.rb)
+                                        --platform "web"
+                                        --artifacts ./$DIST_BUNDLE ./$DIST_WRAPPER
+                                        --debug-artifacts   "https://circleci.com/api/v1/project/streamroot/hlsjs-p2p-wrapper/$CIRCLE_BUILD_NUM/artifacts/0/\$CIRCLE_ARTIFACTS/$BUNDLE_NAME.debug.js"
+                                                            "https://circleci.com/api/v1/project/streamroot/hlsjs-p2p-wrapper/$CIRCLE_BUILD_NUM/artifacts/0/\$CIRCLE_ARTIFACTS/$WRAPPER_NAME.debug.js"
+                                        --doc "https://github.com/streamroot/hlsjs-p2p-wrapper/tree/dev"
+                                        --output $CIRCLE_ARTIFACTS/manifest.yml
+
+            - toolkit/upload_to_s3.rb --bucket staging.streamroot.io
+                                      --region eu-west-1
+                                      --file $CIRCLE_ARTIFACTS/manifest.yml
+                                      --destinations $CIRCLE_PROJECT_REPONAME/$(toolkit/current_version.rb)/manifest.yml
+                                                     $CIRCLE_PROJECT_REPONAME/latest/manifest.yml
+                                      --key $S3_KEY
+                                      --secret $S3_SECRET
             # Changelog
             - toolkit/post_changelog.rb   --project $CIRCLE_PROJECT_REPONAME
                                           --env staging
@@ -139,7 +208,6 @@ deployment:
                                           --slack-token $SLACK_TOKEN
                                           --username $POST_USERNAME
                                           --icon-url $POST_PICTURE
-
             # Run bridge
             - bridge/run.rb --current_module $CIRCLE_PROJECT_REPONAME --trigger_branch dev --token $BRIDGE_TOKEN
 
@@ -171,8 +239,8 @@ deployment:
             - rm -rf dist
 
             # Generate dist
-            - grunt browserify:bundle
-            - grunt browserify:wrapper
+            - npm run build:bundle
+            - npm run build:wrapper
 
             - toolkit/add_banner.rb --file dist/bundle/$DIST_BUNDLE
                                     --version $(toolkit/current_version.rb)
@@ -221,6 +289,76 @@ deployment:
                                                      $CIRCLE_PROJECT_REPONAME/$(toolkit/current_version.rb --no_patch)/$DIST_WRAPPER
                                                      $CIRCLE_PROJECT_REPONAME/$(toolkit/current_version.rb)/$DIST_WRAPPER
                                                      $CIRCLE_PROJECT_REPONAME/latest/$DIST_WRAPPER
+                                      --key $S3_KEY
+                                      --secret $S3_SECRET
+
+            #
+            ## Debug builds
+            #
+
+            # Cleanup
+            - rm -rf dist
+
+            # Install debug peer-agent
+            - rm -rf node_modules/streamroot-p2p
+            - npm install @streamroot/peer-agent-debug
+            - mv node_modules/@streamroot/peer-agent-debug node_modules/streamroot-p2p
+
+            # Generate dist
+            - npm run build:bundle
+            - npm run build:wrapper
+
+            - toolkit/add_banner.rb --file dist/bundle/$DIST_BUNDLE
+                                    --version $(toolkit/current_version.rb)
+                                    --dependencies @streamroot/peer-agent-debug hls.js
+                                    --name $BUNDLE_NAME-debug
+            - toolkit/add_banner.rb --file dist/wrapper/$DIST_WRAPPER
+                                    --version $(toolkit/current_version.rb)
+                                    --dependencies @streamroot/peer-agent-debug
+
+            - cp dist/bundle/$DIST_BUNDLE $CIRCLE_ARTIFACTS/$BUNDLE_NAME.debug.js
+            - cp dist/wrapper/$DIST_WRAPPER $CIRCLE_ARTIFACTS/$WRAPPER_NAME.debug.js
+
+            # Build package.json
+            - toolkit/build_dist_package.rb --version $(toolkit/current_version.rb)
+                                            --main ./$BUNDLE_NAME.debug.js
+                                            --name @streamroot/hlsjs-p2p-bundle-debug
+                                            -o dist/bundle/package.json
+            - toolkit/build_dist_package.rb --version $(toolkit/current_version.rb)
+                                            --main ./$WRAPPER_NAME.debug.js
+                                            --name @streamroot/hlsjs-p2p-wrapper-debug
+                                            -o dist/wrapper/package.json
+
+            # Copy sources (lib) into wrapper dist folder
+            # We ship the sources to be able to access private API
+            # for integration testing usage
+            - cp -R lib dist/wrapper/
+
+            # Publish
+            - npm publish dist/bundle --tag rc
+            - npm publish dist/wrapper --tag rc
+
+            #
+            ## End Debug builds
+            #
+
+            # Generate manifest
+            - toolkit/build_manifest.rb --name "Hls.js Wrapper/Bundle"
+                                        --version $(toolkit/current_version.rb)
+                                        --platform "web"
+                                        --artifacts ./$DIST_BUNDLE ./$DIST_WRAPPER
+                                        --debug-artifacts   "https://circleci.com/api/v1/project/streamroot/hlsjs-p2p-wrapper/$CIRCLE_BUILD_NUM/artifacts/0/\$CIRCLE_ARTIFACTS/$BUNDLE_NAME.debug.js"
+                                                            "https://circleci.com/api/v1/project/streamroot/hlsjs-p2p-wrapper/$CIRCLE_BUILD_NUM/artifacts/0/\$CIRCLE_ARTIFACTS/$WRAPPER_NAME.debug.js"
+                                        --doc "https://github.com/streamroot/hlsjs-p2p-wrapper"
+                                        --output $CIRCLE_ARTIFACTS/manifest.yml
+
+            - toolkit/upload_to_s3.rb --bucket preprod.streamroot.io
+                                      --region eu-west-1
+                                      --file $CIRCLE_ARTIFACTS/manifest.yml
+                                      --destinations $CIRCLE_PROJECT_REPONAME/$(toolkit/current_version.rb --major)/manifest.yml
+                                                     $CIRCLE_PROJECT_REPONAME/$(toolkit/current_version.rb --no_patch)/manifest.yml
+                                                     $CIRCLE_PROJECT_REPONAME/$(toolkit/current_version.rb)/manifest.yml
+                                                     $CIRCLE_PROJECT_REPONAME/latest/manifest.yml
                                       --key $S3_KEY
                                       --secret $S3_SECRET
 
