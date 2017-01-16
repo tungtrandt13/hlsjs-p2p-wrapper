@@ -15,7 +15,7 @@ DEMO_DIR = File.join(CURRENT_FOLDER, "demo-hls.js")
 
 Dir.chdir(CURRENT_FOLDER)
 
-`mkdir -p #{DEMO_DIR}`
+`mkdir -p "#{DEMO_DIR}"`
 
 Dir.chdir(DEMO_DIR)
 
