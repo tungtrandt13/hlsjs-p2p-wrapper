@@ -40,11 +40,13 @@ import StreamrootHlsjsP2PWrapper from 'streamroot-hlsjs-p2p-wrapper';
 
 #### Pre-requisites
 
-First of all, make sure you are using a Node.js version >= 6.0.0
+First of all, make sure you are using Node.js version >= 6.0.0
 
-Since the installation uses a Ruby script, you need Ruby to be installed on your machine. On most Linux distros and on macOS, it's installed by default, but for Windows you need to install it [manually](https://www.ruby-lang.org/en/).
+Since the installation uses a Ruby script, you need Ruby to be installed on your machine. On most Linux distros and on macOS, it's installed by default.
 
 Finally, one of the install steps assumes the presence of `wget` on your system. Again this is most likely installed on all Unix based systems. If you have a Mac, you could use [Homebrew](https://brew.sh/) and then run `brew install wget`.
+
+For Windows users, you can build using either [Windows Subsystem for Linux](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide) or [Cygwin](https://www.cygwin.com/), which provides `wget`, Ruby and a Unix-like environment.
 
 Webpack is used for building, so make sure that you have `webpack` installed in your global node binaries otherwise install it like this:
 ```

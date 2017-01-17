@@ -28,7 +28,7 @@
     "start": "webpack-dev-server -d",
     "debug": "iron-mocha --require mochahook",
     "preinstall": "npm run clean",
-    "postinstall": "./update_demo.rb"
+    "postinstall": "ruby ./update_demo.rb"
   },
   "browserify": {
     "transform": [
