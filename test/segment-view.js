@@ -14,13 +14,13 @@ describe("SegmentView",() => {
         var segmentView;
 
         it("toArrayBuffer should return an ArrayBuffer", function() {
-            segmentView = new SegmentView({sn: 25, trackView: {level: 1, urlId: 1}});
+            segmentView = new SegmentView({sn: 25, trackView: {level: 1, urlId: 1, bitrate: 1000}});
             var arrayBuffer = segmentView.toArrayBuffer();
             arrayBuffer.should.be.an.instanceof(ArrayBuffer);
         });
 
         it("Should return the correct values (low values)", function() {
-            segmentView = new SegmentView({sn: 25, trackView: {level: 1, urlId: 1}});
+            segmentView = new SegmentView({sn: 25, trackView: {level: 1, urlId: 1, bitrate: 1000}});
             var arrayBuffer = segmentView.toArrayBuffer();
             SegmentView.fromArrayBuffer(arrayBuffer).isEqual(segmentView).should.be.true();
         });
@@ -29,45 +29,45 @@ describe("SegmentView",() => {
     describe("isInTrack", function() {
         it('should be in track', () => {
             let trackView = new TrackView({level: 0, urlId: 1});
-            let segmentView = new SegmentView({sn: 25, trackView: {level: 0, urlId: 1}});
+            let segmentView = new SegmentView({sn: 25, trackView: {level: 0, urlId: 1, bitrate: 1000}});
             segmentView.isInTrack(trackView).should.be.true();
         });
 
         it('should not be in track if level is different', () => {
             let trackView = new TrackView({level: 0, urlId: 1});
-            let segmentView = new SegmentView({sn: 25, trackView: {level: 1, urlId: 1}});
+            let segmentView = new SegmentView({sn: 25, trackView: {level: 1, urlId: 1, bitrate: 1000}});
             segmentView.isInTrack(trackView).should.be.false();
         });
 
         it('should not be in track if urlId is different', () => {
             let trackView = new TrackView({level: 0, urlId: 1});
-            let segmentView = new SegmentView({sn: 25, trackView: {level: 0, urlId: 0}});
+            let segmentView = new SegmentView({sn: 25, trackView: {level: 0, urlId: 0, bitrate: 1000}});
             segmentView.isInTrack(trackView).should.be.false();
         });
     });
 
     describe("isEqual", function() {
         it('should be equal', () => {
-            let segmentView1 = new SegmentView({sn: 25, trackView: {level: 1, urlId: 1}});
+            let segmentView1 = new SegmentView({sn: 25, trackView: {level: 1, urlId: 1, bitrate: 1000}});
             let segmentView2 = new SegmentView({sn: 25, trackView: {level: 1, urlId: 1}});
             segmentView1.isEqual(segmentView2).should.be.true();
         });
 
         it('should not be equal if sequence number is different', () => {
-            let segmentView1 = new SegmentView({sn: 25, trackView: {level: 1, urlId: 1}});
-            let segmentView2 = new SegmentView({sn: 1560, trackView: {level: 1, urlId: 1}});
+            let segmentView1 = new SegmentView({sn: 25, trackView: {level: 1, urlId: 1, bitrate: 1000}});
+            let segmentView2 = new SegmentView({sn: 1560, trackView: {level: 1, urlId: 1, bitrate: 1000}});
             segmentView1.isEqual(segmentView2).should.be.false();
         });
 
         it('should not be equal if level is different', () => {
-            let segmentView1 = new SegmentView({sn: 25, trackView: {level: 1, urlId: 1}});
-            let segmentView2 = new SegmentView({sn: 25, trackView: {level: 5, urlId: 1}});
+            let segmentView1 = new SegmentView({sn: 25, trackView: {level: 1, urlId: 1, bitrate: 1000}});
+            let segmentView2 = new SegmentView({sn: 25, trackView: {level: 5, urlId: 1, bitrate: 1000}});
             segmentView1.isEqual(segmentView2).should.be.false();
         });
 
         it('should not be equal if urlId is different', () => {
-            let segmentView1 = new SegmentView({sn: 25, trackView: {level: 1, urlId: 1}});
-            let segmentView2 = new SegmentView({sn: 25, trackView: {level: 1, urlId: 0}});
+            let segmentView1 = new SegmentView({sn: 25, trackView: {level: 1, urlId: 1, bitrate: 1000}});
+            let segmentView2 = new SegmentView({sn: 25, trackView: {level: 1, urlId: 0, bitrate: 1000}});
             segmentView1.isEqual(segmentView2).should.be.false();
         });
     });
