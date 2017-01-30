@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+
+## [4.2.3] - 2017-01-30
 ### Changed
 - Pass total in onProgress stats when available
 
