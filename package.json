@@ -36,7 +36,7 @@
     ]
   },
   "dependencies": {
-    "hls.js": "0.6.12",
+    "hls.js": "0.6.20",
     "lodash.assigninwith": "^4.0.7",
     "lodash.defaults": "4.0.1",
     "streamroot-p2p": "^4.0.0",
