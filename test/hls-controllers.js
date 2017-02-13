@@ -42,6 +42,9 @@ describe("Hls controllers", () => {
         let hlsMock = new HlsMock(5, false, 0, false);
         let streamController = new StreamController(hlsMock);
 
+        // Invoke this to initialize bufferRange, which helps bypass a bufferRange check inside onBufferAppended added in 0.6.21
+        streamController.onManifestLoading();
+
         const frag = {
             loadCounter: 1,
             url: "http://foo.bar/foo",
