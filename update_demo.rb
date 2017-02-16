@@ -8,7 +8,7 @@ CURRENT_FOLDER = File.expand_path(File.dirname(__FILE__))
 
 PACKAGE = File.read(File.join(CURRENT_FOLDER, 'package.json'))
 PACKAGE_HASH = JSON.parse(PACKAGE)
-VERSION = PACKAGE_HASH['dependencies']['hls.js']
+VERSION = PACKAGE_HASH['dependencies']['hls.js'].sub('^', '');
 
 FILENAME = "v#{VERSION}.tar.gz"
 DEMO_DIR = File.join(CURRENT_FOLDER, "demo-hls.js")

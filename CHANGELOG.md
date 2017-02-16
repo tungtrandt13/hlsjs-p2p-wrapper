@@ -7,6 +7,10 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ### Added
 - Optional `bitrate` field as been added to **TrackView**.
 
+### Updated
+- Wrapper now supports hls.js up to version `0.6.21`.
+- Bundles hls.js `0.6.21`.
+
 ## [Unreleased]
 
 ## [4.2.3] - 2017-01-30
