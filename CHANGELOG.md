@@ -4,6 +4,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This changelog's template come from [keepachangelog.com](http://keepachangelog.com/). When editing this document, please follow the convention specified there.
 
 ## [Dev]
+### Added
+- Optional `bitrate` field as been added to **TrackView**.
+
+### Updated
+- Wrapper now supports hls.js up to version `0.6.21`.
+- Bundles hls.js `0.6.21`.
 
 ## [Unreleased]
 
