@@ -255,3 +255,4 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [1.0.0] - 2015-11-05
 ### Changed
 - Add release workflow
+[4.3.1]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.0...v4.3.1
