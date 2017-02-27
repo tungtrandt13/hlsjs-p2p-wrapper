@@ -1,6 +1,6 @@
 import HlsMock from "./mocks/hls";
 import AbrController from "hls.js/lib/controller/abr-controller";
-import StreamController from "hls.js/lib/controller/stream-controller";
+import StreamController from "hls.js/lib/controller/stream-controller"; // StreamController class is not exposed in DefaultConfig anymore
 
 global.performance = {
     now: Date.now
@@ -19,7 +19,7 @@ describe("Hls controllers", () => {
             level: 1,
             bitrateTest: true,
             type: "main",
-            sn: 0
+            sn: 0 // Fix a introduced NaN sn check
         };
 
         let now = Date.now();
@@ -32,7 +32,7 @@ describe("Hls controllers", () => {
         abrController.onFragLoading({frag});
         abrController.onFragLoaded({frag, stats});
 
-        abrController._bwEstimator.getEstimate().should.be.approximately(1024000, 4000);
+        abrController._bwEstimator.getEstimate().should.be.approximately(1024000, 4000); // Some stuffs in abrController now have a _ prefix
         abrController.lastLoadedFragLevel.should.be.equal(frag.level);
     });
 
