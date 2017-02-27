@@ -98,7 +98,7 @@ describe("P2PLoaderGenerator", function() { // using plain ES5 function here
 
             console.log('Estimated BW: ' + estimatedBW);
 
-            (hls.abrController._bwEstimator.getEstimate() / estimatedBW).should.be.approximately(1, 0.01); // delta of 1%
+            (hls.abrController._bwEstimator.getEstimate() / estimatedBW).should.be.approximately(1, 0.01); // delta of 1% failed, calculated bw deviate by 3% instead
 
             done();
         }
