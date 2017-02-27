@@ -1,8 +1,6 @@
-import Hls from "hls.js";
 import HlsMock from "./mocks/hls";
-
-const AbrController = Hls.DefaultConfig.abrController;
-const StreamController = Hls.DefaultConfig.streamController;
+import AbrController from "hls.js/lib/controller/abr-controller";
+import StreamController from "hls.js/lib/controller/stream-controller";
 
 global.performance = {
     now: Date.now
@@ -20,7 +18,8 @@ describe("Hls controllers", () => {
             url: "http://foo.bar/foo",
             level: 1,
             bitrateTest: true,
-            type: "main"
+            type: "main",
+            sn: 0
         };
 
         let now = Date.now();
