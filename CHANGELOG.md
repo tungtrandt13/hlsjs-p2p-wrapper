@@ -7,6 +7,11 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [Unreleased]
 
+## [4.3.3] - 2017-02-27
+### Added
+- Checks to prevent errors on unsupported IE10
+- Sanity check for Hls.js instance
+
 ## [4.3.0] - 2017-02-21
 ### Added
 - Optional `bitrate` field as been added to **TrackView**.
@@ -255,4 +260,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [1.0.0] - 2015-11-05
 ### Changed
 - Add release workflow
-[4.3.1]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.0...v4.3.1[4.3.2]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.0...v4.3.2[4.3.3]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.0...v4.3.3
+
+[4.3.1]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.0...v4.3.1
+[4.3.2]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.0...v4.3.2
+[4.3.3]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.0...v4.3.3
+
