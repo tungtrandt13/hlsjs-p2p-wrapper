@@ -53,7 +53,12 @@ class HlsMock {
     }
 
     static get Events() {
-        return {};
+        return {
+            LEVEL_SWITCH: 'LEVEL_SWITCH',
+            LEVEL_SWITCHING: 'LEVEL_SWITCHING',
+            FRAG_LOAD_EMERGENCY_ABORTED: 'FRAG_LOAD_EMERGENCY_ABORTED',
+            DESTROYING: 'DESTROYING',
+        };
     }
 
     on() {}

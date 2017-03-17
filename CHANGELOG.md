@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+### Added
+- Notifying peer-agent about emergency frag load abort(track switch due to bandwidth drop).
 
 ## [4.3.3] - 2017-02-27
 ### Added

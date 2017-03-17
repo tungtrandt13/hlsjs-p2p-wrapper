@@ -1,17 +1,10 @@
 <html>
     <head>
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/rickshaw/1.4.6/rickshaw.min.js"> </script>
-        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/rickshaw/1.4.6/rickshaw.min.css">
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.9/d3.min.js"> </script>
-
         <script src="../config.js"></script>
 
         <script>
             window.previousTotalCDN = 0;
         </script>
-
-        <script src="http://cdn.streamroot.io/2/scripts/p2pGraph.js"></script>
-        <script src="http://cdn.streamroot.io/2/scripts/peerStat.js"></script>
 
         <script src="../../dist/bundle/hlsjs-p2p-bundle.js"></script>
 
@@ -58,5 +51,8 @@
     <body>
         <div id="error"></div>
         <video controls id="video"></video>
+
+        <div id="streamroot-graphs"></div>
+        <script src="https://tools.streamroot.io/usage-graphs/latest/graphs.js"></script>
     </body>
 </html>
