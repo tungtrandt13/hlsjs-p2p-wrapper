@@ -8,7 +8,13 @@ You can integrate this bundle with minimal changes in your application (you only
 It also provides a **wrapper** that allows you to create/configure a player with a specific version of [`hls.js`](https://github.com/dailymotion/hls.js).
 Supported versions of [`hls.js`](https://github.com/dailymotion/hls.js): from [`v0.5.46`](https://github.com/dailymotion/hls.js/releases/tag/v0.5.46) to [`v0.6.12`](https://github.com/dailymotion/hls.js/releases/tag/v0.6.12).
 
-### Install via npm
+### Install
+
+#### Pre-built script
+
+The latest pre-built version is available at: https://cdn.streamroot.io/hlsjs-p2p-wrapper/stable/hlsjs-p2p-wrapper.js
+
+#### Via NPM
 
 You can install the artifacts distributed as NPM modules:
 
@@ -229,7 +235,7 @@ Not available yet.
 #### Wrapper
 
 A `peerAgent` public API is exposed on a `HlsjsP2PWrapper` instance -- `wrapper.peerAgent`.
-List of peerAgent's public API getters/setters is documented here https://streamroot.readme.io/docs/peeragent-class-reference.
+List of peerAgent's public API getters/setters is documented here https://streamroot.readme.io/reference#peer-agent-class-reference.
 
 ### Run demos
 
