@@ -158,6 +158,7 @@ var hlsjsConfig = {
 
 var p2pConfig = {
     streamrootKey: YOUR_STREAMROOT_KEY_HERE
+    // Other p2pConfig options if applicable
 };
 
 // Hls constructor is overriden by included bundle
@@ -195,6 +196,7 @@ var hlsjsConfig = {
 
 var p2pConfig = {
     streamrootKey: YOUR_STREAMROOT_KEY_HERE
+    // Other p2pConfig options if applicable
 };
 
 var hls = new Hls(hlsjsConfig);
