@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+### Fixed
+- Remove strict condition that avoided every mobile browser to be considered as not supported.
 
 ## [4.3.6] - 2017-03-17
 ### Added
