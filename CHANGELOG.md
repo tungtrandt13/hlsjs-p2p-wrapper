@@ -7,6 +7,10 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [Unreleased]
 
+## [4.3.12] - 2017-05-02
+### Fixed
+- Remove strict condition that avoided every mobile browser to be considered as not supported.
+
 ## [4.3.6] - 2017-03-17
 ### Added
 - Notifying peer-agent about emergency frag load abort(track switch due to bandwidth drop).
@@ -276,3 +280,4 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 [4.3.9]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.6...v4.3.9
 [4.3.10]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.6...v4.3.10
 [4.3.11]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.6...v4.3.11
+[4.3.12]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.6...v4.3.12
