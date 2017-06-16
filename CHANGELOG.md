@@ -286,3 +286,4 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 [4.3.15]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.12...v4.3.15
 [4.3.16]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.12...v4.3.16
 [4.3.17]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.12...v4.3.17
+[4.3.18]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.12...v4.3.18
