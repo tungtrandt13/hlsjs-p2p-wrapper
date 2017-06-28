@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+### Fixed
+- Use uglify JS options to escape the / in "</script>"
 
 ## [4.3.24] - 2017-06-28
 ### Added
