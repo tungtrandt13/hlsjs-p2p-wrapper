@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+### Added
+- Override downswitches if next segment is already prebuffered
 
 ## [4.3.12] - 2017-05-02
 ### Fixed
