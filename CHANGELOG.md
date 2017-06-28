@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+
+## [4.3.24] - 2017-06-28
 ### Added
 - Override downswitches if next segment is already prebuffered
 
@@ -294,3 +296,4 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 [4.3.21]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.12...v4.3.21
 [4.3.22]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.12...v4.3.22
 [4.3.23]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.12...v4.3.23
+[4.3.24]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.12...v4.3.24
