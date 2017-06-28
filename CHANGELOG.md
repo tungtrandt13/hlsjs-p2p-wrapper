@@ -7,9 +7,13 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [Unreleased]
 
+## [4.3.26] - 2017-06-28
+### Fixed
+- Use uglify JS options to escape the / in "</script>" in wrapper
+
 ## [4.3.25] - 2017-06-28
 ### Fixed
-- Use uglify JS options to escape the / in "</script>"
+- Use uglify JS options to escape the / in "</script>" in bundle
 
 ## [4.3.24] - 2017-06-28
 ### Added
@@ -302,3 +306,4 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 [4.3.23]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.12...v4.3.23
 [4.3.24]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.12...v4.3.24
 [4.3.25]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.24...v4.3.25
+[4.3.26]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.25...v4.3.26
