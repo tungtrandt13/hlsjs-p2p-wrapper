@@ -6,10 +6,12 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+### Fixed
+- Use uglify JS options to escape the / in "</script>" in wrapper
 
 ## [4.3.25] - 2017-06-28
 ### Fixed
-- Use uglify JS options to escape the / in "</script>"
+- Use uglify JS options to escape the / in "</script>" in bundle
 
 ## [4.3.24] - 2017-06-28
 ### Added

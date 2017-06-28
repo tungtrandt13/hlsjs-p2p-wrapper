@@ -28,6 +28,7 @@ export default Object.assign(baseConfig, {
             mangle: true,
             output: {
                 comments: false,
+                inline_script: true,
             },
         }),
         new webpack.DefinePlugin({
