@@ -7,6 +7,10 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [Unreleased]
 
+## [4.3.29] - 2017-07-06
+### Fixed
+- Fix error in overriden ABR logic when peer-agent has been disposed
+
 ## [4.3.26] - 2017-06-28
 ### Fixed
 - Use uglify JS options to escape the / in "</script>" in wrapper
@@ -309,3 +313,4 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 [4.3.26]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.25...v4.3.26
 [4.3.27]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.26...v4.3.27
 [4.3.28]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.26...v4.3.28
+[4.3.29]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.26...v4.3.29
