@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+### Fixed
+- Fix error in overriden ABR logic when peer-agent has been disposed
 
 ## [4.3.26] - 2017-06-28
 ### Fixed
