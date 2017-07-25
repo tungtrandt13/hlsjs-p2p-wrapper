@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+### Changed
+- Bump hls.js to version 0.7.9 in bundle
 
 ## [4.3.29] - 2017-07-06
 ### Fixed
