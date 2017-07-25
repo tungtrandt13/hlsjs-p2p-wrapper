@@ -33,7 +33,7 @@ describe("Hls controllers", () => {
         abrController.onFragLoading({frag});
         abrController.onFragLoaded({frag, stats});
 
-        abrController.bwEstimator.getEstimate().should.be.approximately(1024000, 4000);
+        abrController._bwEstimator.getEstimate().should.be.approximately(1024000, 4000);
         abrController.lastLoadedFragLevel.should.be.equal(frag.level);
     });
 
