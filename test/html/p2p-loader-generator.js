@@ -57,6 +57,7 @@ describe("P2PLoaderGenerator", function() { // using plain ES5 function here
             level: 0,
             bitrateTest: true,
             type: "main",
+            sn: 32
         };
 
         hls.levelController._levels = hlsjsMock.levels;

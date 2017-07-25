@@ -20,7 +20,8 @@ describe("Hls controllers", () => {
             url: "http://foo.bar/foo",
             level: 1,
             bitrateTest: true,
-            type: "main"
+            type: "main",
+            sn: 1231
         };
 
         let now = Date.now();
