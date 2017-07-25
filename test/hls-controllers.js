@@ -1,8 +1,8 @@
 import Hls from "hls.js";
 import HlsMock from "./mocks/hls";
+import StreamController from "../node_modules/hls.js/lib/controller/stream-controller.js";
 
 const AbrController = Hls.DefaultConfig.abrController;
-const StreamController = Hls.DefaultConfig.streamController;
 
 global.performance = {
     now: Date.now
