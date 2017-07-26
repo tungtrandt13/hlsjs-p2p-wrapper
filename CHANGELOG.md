@@ -11,6 +11,10 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ### Changed
 - Bump hls.js to version 0.7.9 in bundle
 
+## [4.3.34] - 2017-07-17
+### Fixed
+- Global variable `self` declaration
+
 ## [4.3.29] - 2017-07-06
 ### Fixed
 - Fix error in overriden ABR logic when peer-agent has been disposed
@@ -324,3 +328,4 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 [4.3.33]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.29...v4.3.33
 [4.3.34]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.29...v4.3.34
 [4.3.35]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.29...v4.3.35
+[4.3.36]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.35...v4.3.36
