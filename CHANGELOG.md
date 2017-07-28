@@ -7,6 +7,9 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [Unreleased]
 
+## [4.3.37] - 2017-07-28
+- Rollback hls.js to version 0.6.21 in bundle
+
 ## [4.3.35] - 2017-07-25
 ### Changed
 - Bump hls.js to version 0.7.9 in bundle
@@ -329,3 +332,4 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 [4.3.34]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.29...v4.3.34
 [4.3.35]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.29...v4.3.35
 [4.3.36]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.35...v4.3.36
+[4.3.37]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.35...v4.3.37
