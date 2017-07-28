@@ -1,8 +1,8 @@
 import Hls from "hls.js";
 import HlsMock from "./mocks/hls";
-import StreamController from "../node_modules/hls.js/lib/controller/stream-controller.js";
 
 const AbrController = Hls.DefaultConfig.abrController;
+const StreamController = Hls.DefaultConfig.streamController;
 
 global.performance = {
     now: Date.now
@@ -20,8 +20,7 @@ describe("Hls controllers", () => {
             url: "http://foo.bar/foo",
             level: 1,
             bitrateTest: true,
-            type: "main",
-            sn: 1231
+            type: "main"
         };
 
         let now = Date.now();
@@ -34,7 +33,7 @@ describe("Hls controllers", () => {
         abrController.onFragLoading({frag});
         abrController.onFragLoaded({frag, stats});
 
-        abrController._bwEstimator.getEstimate().should.be.approximately(1024000, 4000);
+        abrController.bwEstimator.getEstimate().should.be.approximately(1024000, 4000);
         abrController.lastLoadedFragLevel.should.be.equal(frag.level);
     });
 

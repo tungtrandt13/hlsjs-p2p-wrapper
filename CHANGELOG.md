@@ -6,6 +6,7 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+- Rollback hls.js to version 0.6.21 in bundle
 
 ## [4.3.35] - 2017-07-25
 ### Changed
