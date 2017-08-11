@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+### Added
+- Notify PeerAgent of fatal errors
 
 ## [4.3.37] - 2017-07-28
 - Rollback hls.js to version 0.6.21 in bundle
