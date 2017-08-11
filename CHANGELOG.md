@@ -7,6 +7,10 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [Unreleased]
 
+## [4.3.40] - 2017-08-11
+### Added
+- Notify PeerAgent of fatal errors
+
 ## [4.3.37] - 2017-07-28
 - Rollback hls.js to version 0.6.21 in bundle
 
@@ -335,3 +339,4 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 [4.3.37]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.35...v4.3.37
 [4.3.38]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.37...v4.3.38
 [4.3.39]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.37...v4.3.39
+[4.3.40]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.37...v4.3.40
