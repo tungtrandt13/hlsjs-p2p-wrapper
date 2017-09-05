@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+### Fixed
+- Fix choice of loader version
 
 ## [4.3.40] - 2017-08-11
 ### Added
