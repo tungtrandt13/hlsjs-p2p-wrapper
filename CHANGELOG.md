@@ -7,6 +7,10 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [Unreleased]
 
+## [4.3.43] - 2017-09-08
+### Fixed
+- Compatibility with streams with alternate audio tracks
+
 ## [4.3.42] - 2017-09-05
 ### Fixed
 - Fix choice of loader version
@@ -346,3 +350,4 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 [4.3.40]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.37...v4.3.40
 [4.3.41]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.40...v4.3.41
 [4.3.42]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.40...v4.3.42
+[4.3.43]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.42...v4.3.43
