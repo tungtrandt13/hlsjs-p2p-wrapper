@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+### Fixed
+- Compatibility with streams with alternate audio tracks
 
 ## [4.3.42] - 2017-09-05
 ### Fixed
