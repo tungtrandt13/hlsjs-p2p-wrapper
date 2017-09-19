@@ -35,13 +35,13 @@ describe("xhrSetup extractor",() => {
 
     it('should throw when we call open with a method other than GET', () => {
         extractInfoFromXhrSetup.bind(null, (xhr) => {
-            xhr.open('POST', 'foo', true)
+            xhr.open('POST', 'foo', true);
         }).should.throw;
     });
 
     it('should throw when we call open with sync=false', () => {
         extractInfoFromXhrSetup.bind(null, (xhr) => {
-            xhr.open('GET', 'foo', false)
+            xhr.open('GET', 'foo', false);
         }).should.throw;
     });
 
@@ -74,14 +74,14 @@ describe("xhrSetup extractor",() => {
 
     it('should return original URL when open is not called', () => {
         let originalURL = 'foobar';
-        let { url } = extractInfoFromXhrSetup((xhr, xhrSetupURL) => {}, originalURL);
+        let { url } = extractInfoFromXhrSetup((xhr, xhrSetupURL) => {}, originalURL); // eslint-disable-line no-unused-vars
         url.should.equal(originalURL);
     });
 
     it('should return URL passed to "open" when called', () => {
         let modifiedURL = "baz";
         let originalURL = 'foobar';
-        let { url } = extractInfoFromXhrSetup((xhr, xhrSetupURL) => {
+        let { url } = extractInfoFromXhrSetup((xhr, xhrSetupURL) => { // eslint-disable-line no-unused-vars
             xhr.open('GET', modifiedURL);
         }, originalURL);
         url.should.equal(modifiedURL);
