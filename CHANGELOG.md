@@ -6,6 +6,12 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+### Added
+- Support url rewriting through `xhr.open` calls in `xhrSetup`
+
+### Changed
+- Update hls.js version to 0.8.2 in bundle
+- Bump integration version
 
 ## [4.3.43] - 2017-09-08
 ### Fixed
