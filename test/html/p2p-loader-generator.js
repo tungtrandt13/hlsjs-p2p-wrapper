@@ -57,6 +57,7 @@ describe("P2PLoaderGenerator", function() { // using plain ES5 function here
             level: 0,
             bitrateTest: true,
             type: "main",
+            sn: 32
         };
 
         hls.levelController._levels = hlsjsMock.levels;
@@ -98,7 +99,7 @@ describe("P2PLoaderGenerator", function() { // using plain ES5 function here
 
             console.log('Estimated BW: ' + estimatedBW);
 
-            (hls.abrController.bwEstimator.getEstimate() / estimatedBW).should.be.approximately(1, 0.01); // delta of 1%
+            (hls.abrController._bwEstimator.getEstimate() / estimatedBW).should.be.approximately(1, 0.01); // delta of 1%
 
             done();
         }
