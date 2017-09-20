@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+
+## [4.3.46] - 2017-09-20
 ### Added
 - Support url rewriting through `xhr.open` calls in `xhrSetup`
 
@@ -359,3 +361,4 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 [4.3.43]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.42...v4.3.43
 [4.3.44]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.43...v4.3.44
 [4.3.45]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.43...v4.3.45
+[4.3.46]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.43...v4.3.46
