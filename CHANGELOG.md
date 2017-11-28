@@ -7,6 +7,10 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [Unreleased]
 
+## [4.3.55] - 2017-11-28
+### Fixed
+- Error on IE due to unsupported ES6 constructs
+
 ## [4.3.46] - 2017-09-20
 ### Added
 - Support url rewriting through `xhr.open` calls in `xhrSetup`
@@ -370,3 +374,4 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 [4.3.52]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.46...v4.3.52
 [4.3.53]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.46...v4.3.53
 [4.3.54]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.46...v4.3.54
+[4.3.55]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.46...v4.3.55
