@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+### Fixed
+- Error on IE due to unsupported ES6 constructs
 
 ## [4.3.46] - 2017-09-20
 ### Added
