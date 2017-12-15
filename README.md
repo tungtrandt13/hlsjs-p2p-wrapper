@@ -183,8 +183,6 @@ Include the wrapper build and [`hls.js`](https://github.com/dailymotion/hls.js) 
 Create [`hls.js`](https://github.com/dailymotion/hls.js) instance passsing `hlsjsConfig` as param.
 Create [`hls.js`](https://github.com/dailymotion/hls.js) wrapper instance passing `p2pConfig` and `hls.js` instance as params. Call hls.js `loadSource` and `attachMedia` methods.
 
-**Please note that you can intialize the wrapper any time after hls.js is initialized, even after calling `hls.attachSource` or `hls.attachMedia`, and even if the playback has started already. This late p2p init option is possible only with wrapper, bundle does not support this feature.**
-
 
 ```javascript
 var hlsjsConfig = {
@@ -208,6 +206,42 @@ hls.attachMedia(video);
 hls.on(Hls.Events.MANIFEST_PARSED,function() {
     video.play();
 });
+```
+
+**Important note: you need to initialize the wrapper before calling `hls.attachSource`, or it may not initialize correctly**
+
+```javascript
+/*
+ * Correct initialization
+ */
+var hls = new Hls(hlsjsConfig);
+
+// ...
+
+var wrapper = new HlsjsP2PWrapper(p2pConfig, hls);
+
+// ...
+
+hls.loadSource(contentUrl);
+
+```
+
+```javascript
+
+/*
+ * Inorrect initialization
+ */
+var hls = new Hls(hlsjsConfig);
+
+// ...
+
+hls.loadSource(contentUrl);
+
+// ...
+
+var wrapper = new HlsjsP2PWrapper(p2pConfig, hls);
+
+
 ```
 
 To see full sample code and extended possibilities of how to use this module, take a look at the code in the `example` directory.
