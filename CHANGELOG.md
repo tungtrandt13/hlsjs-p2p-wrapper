@@ -7,6 +7,10 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [Unreleased]
 
+## [4.3.62] - 2018-01-03
+### Removed
+- Overrides to Hls.js static functions to block Safari.
+
 ## [4.3.55] - 2017-11-28
 ### Fixed
 - Error on IE due to unsupported ES6 constructs
@@ -381,3 +385,4 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 [4.3.59]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.55...v4.3.59
 [4.3.60]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.55...v4.3.60
 [4.3.61]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.55...v4.3.61
+[4.3.62]: https://github.com/streamroot/hlsjs-p2p-wrapper/compare/v4.3.55...v4.3.62
