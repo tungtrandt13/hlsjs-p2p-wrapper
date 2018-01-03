@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+### Removed
+- Overrides to Hls.js static functions to block Safari.
 
 ## [4.3.55] - 2017-11-28
 ### Fixed
